@@ -1,3 +1,11 @@
+<?php 
+    session_start();
+    if(($_SESSION['loggedin'] == false) || !isset($_SESSION['loggedin'])) {
+        header('location: admin_login.php');
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,53 +34,14 @@
 </head>
 
 <body id="body-pd">
-    <header class="header" id="header">
-        <div class="header__toggle">
-            <i class='bx bx-menu' id="header-toggle"></i>
-        </div>
-        <div class="header__img icon_section">
-            <a href="#"><i class="bi bi-arrow-bar-up"></i></a>
-            <a href="#"><i class="bi bi-person-circle profile_icon"></i></a>
-        </div>
-    </header>
+    <?php
+        include 'partials/_navbar.php';
 
-    <div class="l-navbar" id="nav-bar">
-        <nav class="nav">
-            <div>
-                <a href="#" class="nav__logo">
-                    <i class='bx bx-layer nav__logo-icon'></i>
-                    <span class="nav__logo-name">SMS</span>
-                </a>
-                <div class="nav__list">
-                    <a href="#" class="nav__link active">
-                        <i class="bi bi-person-circle"></i>
-                        <span class="nav__name">Profile</span>
-                    </a>
-                    <a href="#" class="nav__link">
-                        <i class='bx bx-stopwatch nav__icon'></i>
-                        <span class="nav__name">Meeting</span>
-                    </a>
-                    <a href="#" class="nav__link">
-                        <i class='bx bx-message-square-detail nav__icon'></i>
-                        <span class="nav__name">Notification</span>
-                    </a>
-                    <a href="#" class="nav__link">
-                        <i class='bx bx-list-ul nav__icon'></i>
-                        <span class="nav__name">Lists</span>
-                    </a>
-                    <a href="#" class="nav__link">
-                        <i class='bx bx-mail-send nav__icon'></i>
-                        <span class="nav__name">Query</span>
-                    </a>
-                </div>
-            </div>
-            <a href="#" class="nav__link">
-                <i class='bx bx-log-out nav__icon'></i>
-                <span class="nav__name">Log Out</span>
-            </a>
-        </nav>
-    </div>
-
+        if(isset($_POST['logout'])) {
+            header("location: admin_logout.php");
+            exit;
+        }
+    ?>
     <div class="container" style="font-family: 'PT Serif', serif;
     font-family: 'Ubuntu', sans-serif;">
         <div class="row featurette pt-3">
@@ -80,11 +49,10 @@
                 <img class="flex-shrink-0 bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300" height="200" src="../photo/profile_student.png" alt="Student profile">
             </div>
             <div class="col-md-7 order-md-2">
-                <h4 class="text-dark text-sm-left pt-5">Hello, Nitish Rajbongshi</h4>
-                <p class="lead mb-1">Email: nitishrajbongshi@gmail.com</p>
-                <p class="lead mb-1">Mobile: 6001020913</p>
-                <p class="lead mb-1">Mentor Id: CSE2202</p>
-                <!-- <p class="lead mb-1">Program: MCA</p> -->
+                <h4 class="text-dark text-sm-left pt-5">Hello, <?php echo $_SESSION['username'] ?></h4>
+                <p class="lead mb-1">Email: <?php echo $_SESSION['email'] ?></p>
+                <p class="lead mb-1">Mobile: <?php echo $_SESSION['phone'] ?> </p>
+                <p class="lead mb-1">Admin Id: <?php echo $_SESSION['adminId'] ?></p>
                 <div class="chng_btn">
                     <button type="button" class="btn btn-outline-danger my-2">Change password</button>
                     <button type="button" class="btn btn-outline-danger my-2">Update profile</button>
@@ -129,6 +97,14 @@
     <!--===== MAIN JS =====-->
     <script src="../script/profile_sidebar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="../script/jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#logoutbtn").click(function() {
+                window.location.replace("admin_logout.php");
+            })
+        })
+    </script>
 </body>
 
 </html>

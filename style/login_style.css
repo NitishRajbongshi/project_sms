@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div.cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+
+div.imag,
+div.txtt {
+    width: 400px;
+    height: 370px;
+}
+
+div.txtt {
+    border-left: 2px solid blue;
+    padding: 3px;
+}
+
+div.imag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 370px;
+}
+
+div.imag img {
+    height: 92%;
+}
+
+h3.login_txt {
+    text-align: center;
+    font: 1.3rem;
+    color: blue;
+    padding: 10px auto;
+    font-size: 1.5rem;
+    padding: 14px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+div.frm input {
+    margin-bottom: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-bottom: 1px solid blue;
+    border-radius: 3px;
+    margin-top: 10px;
+    width: 90%;
+    color: rgb(2, 4, 67);
+}
+
+button.my_btn {
+    width: 90%;
+    padding: 8px;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    background: blue;
+    margin-top: 40px;
+    color: white;
+}
+
+button.my_btn:hover {
+    cursor: pointer;
+    background-color: rgb(83, 83, 249);
+}
+
+p.response {
+    text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+    div.imag img {
+        height: 70%;
+        width: 40%;
+    }
+
+    div.imag {
+        height: 200px;
+    }
+
+    div.cont {
+        height: 0;
+    }
+
+    div.txtt {
+        border: none;
+    }
+
+    h3.login_txt {
+        padding: 0;
+    }
+}

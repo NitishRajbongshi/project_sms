@@ -28,6 +28,8 @@
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="../style/profile_sidebar.css">
     <link rel="stylesheet" href="../style/bg_color.css">
+    <link rel="stylesheet" href="../style/popup_style.css">
+    <link rel="stylesheet" href="../admin/style/button.css">
 
     <title>mentor profile</title>
 </head>
@@ -43,6 +45,38 @@
         }
     ?>
 
+    <!-- change password -->
+    <div class="cp">
+        <div class="popup-content">
+            <h2>Change password</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                id
+                laborum.</p>
+            <a class="closeBtn" href="javascript:void(0)">x</a>
+        </div>
+    </div>
+
+    <!-- change profile -->
+    <div class="cprof">
+        <div class="popup-content">
+            <h2>Update Profile</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                id
+                laborum.</p>
+            <a class="closeBtn" href="javascript:void(0)">x</a>
+        </div>
+    </div>
+
     <div class="container" style="font-family: 'PT Serif', serif;
     font-family: 'Ubuntu', sans-serif;">
         <div class="row featurette pt-3">
@@ -55,7 +89,12 @@
                 <p class="lead mb-1">Mobile: <?php echo $_SESSION['phone']; ?></p>
                 <p class="lead mb-1">Mentor ID: <?php echo $_SESSION['mentorId']; ?></p>
                 <p class="lead mb-1">Depertment: CSE</p>
-                <button type="button" class="btn btn-outline-danger my-2">Change password</button>
+                <div class="chng_btn">
+                    <button type="button" class="btn btn-outline-success my-2 openBtn" id="change_pass_admin">Change
+                        password</button>
+                    <button type="button" class="btn btn-outline-success my-2 update_profile" id="update_prof_admin">Update
+                        profile</button>
+                </div>
             </div>
         </div>
     </div>
@@ -63,6 +102,8 @@
     <!--===== MAIN JS =====-->
     <script src="../script/jquery.js"></script>
     <script src="../script/profile_sidebar.js"></script>
+    <script src="../script/change_password.js"></script>
+    <script src="../script/update_profile.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {

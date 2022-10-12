@@ -41,8 +41,12 @@
                 </div>
             </div>
             <a href="#" class="nav__link">
-                <i class="bx bx-log-out nav__icon"></i>
-                <span class="nav__name">Log Out</span>
+                <i class="bx bx-log-out nav__icon" id="logoutbtn"></i>
+                <span class="nav__name">
+                    <form action="mentor_profile.php" method="post">
+                        <input class="bg-transparent text-danger border-0" type="submit" name="logout" value="Logout">
+                    </form>
+                </span>
             </a>
         </nav>
     </div>

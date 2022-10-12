@@ -46,6 +46,7 @@
     <?php
         include 'partials/_navbar.php';
 
+        // logout and redirect to index page
         if(isset($_POST['logout'])) {
             header("location: admin_logout.php");
             exit;

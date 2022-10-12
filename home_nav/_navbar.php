@@ -33,7 +33,7 @@ echo'<nav class="navbar .bg-transparent fixed-top">
                                         class="bi bi-person-fill"></i>Admin</a></li>
                             <li class="menu_items"><a class="dropdown-item" href="mentor/mentor_login.php"><i
                                         class="bi bi-person-fill"></i>Mentor</a></li>
-                            <li class="menu_items"><a class="dropdown-item" href="#"><i
+                            <li class="menu_items"><a class="dropdown-item" href="student/student_login.php"><i
                                         class="bi bi-person-fill"></i>Student</a></li>
                         </ul>
                     </li>

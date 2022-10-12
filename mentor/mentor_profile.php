@@ -35,6 +35,12 @@
 <body id="body-pd">
     <?php
         include "partials/_navbar.php";
+        
+        // logout and redirect to index page
+        if(isset($_POST['logout'])) {
+            header("location: mentor_logout.php");
+            exit;
+        }
     ?>
 
     <div class="container" style="font-family: 'PT Serif', serif;
@@ -44,36 +50,28 @@
                 <img class="flex-shrink-0 bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300" height="200" src="../photo/profile_student.png" alt="Student profile">
             </div>
             <div class="col-md-7 order-md-2">
-                <h4 class="text-dark text-sm-left pt-4">Hello, Nitish Rajbongshi</h4>
-                <p class="lead mb-1">Email: nitishrajbongshi@gmail.com</p>
-                <p class="lead mb-1">Mobile: 6001020913</p>
+                <h4 class="text-dark text-sm-left pt-4">Hello, <?php echo $_SESSION['username']; ?></h4>
+                <p class="lead mb-1">Email: <?php echo $_SESSION['email']; ?></p>
+                <p class="lead mb-1">Mobile: <?php echo $_SESSION['phone']; ?></p>
+                <p class="lead mb-1">Mentor ID: <?php echo $_SESSION['mentorId']; ?></p>
                 <p class="lead mb-1">Depertment: CSE</p>
-                <p class="lead mb-1">Program: MCA</p>
                 <button type="button" class="btn btn-outline-danger my-2">Change password</button>
             </div>
         </div>
     </div>
-    <!-- <hr class="featurette-divider">
-    <div class="container my-2 mentor_details" style="font-family: 'PT Serif', serif;
-    font-family: 'Ubuntu', sans-serif;">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 text-dark text-left py-4">
-                <h4 class="font-weight-light">MENTOR DETAILS</h4>
-                <h5 class="font-weight-light">Mentor: PROF. XYZ XYZXYZ</h5>
-                <h5 class="font-weight-light">Email: myprof@gmail.com</h5>
-                <h5 class="font-weight-light">Phone: 6001020913</h5>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col text-center m-3">
-                <a href="#" class="btn btn-green bg-danger text-white">Asked query</a>
-            </div>
-        </div>
-    </div> -->
 
     <!--===== MAIN JS =====-->
+    <script src="../script/jquery.js"></script>
     <script src="../script/profile_sidebar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            // script for logout
+            $("#logoutbtn").click(function () {
+                window.location.replace("mentor_logout.php");
+            })
+        })
+    </script>
 </body>
 
 </html>

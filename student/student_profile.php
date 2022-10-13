@@ -49,6 +49,47 @@
             exit;
         }
 
+        // updating password
+$oldpassmatch = false;
+// if($_SERVER['REQUEST_METHOD'] == "POST") { 
+// }
+if(isset($_POST['changePassword'])) {
+    $op = $_POST['curp'];
+    $np = $_POST['newp'];
+    $ncp = $_POST['newcp'];
+    $rollno = $_SESSION['rollno'];
+
+    $sql = "SELECT `student_password` FROM `student_login` WHERE `rollno` = '$rollno'";
+    $result = mysqli_query($conn, $sql);
+    $no_row = mysqli_num_rows($result);
+    if($no_row == 1) {            
+        while($row = mysqli_fetch_assoc($result)) {
+            $p = $row['password'];
+            if(password_verify($op, $p)) {
+                $oldpassmatch = true;
+            }
+        }
+        if(($np == $ncp) && $oldpassmatch == true) {
+            $new_hash = password_hash($np, PASSWORD_DEFAULT);
+            $sql = "UPDATE `student_login` SET `password`='$new_hash' WHERE `rollno` = '$rollno'";
+            $result = mysqli_query($conn, $sql);
+            if ($result) {
+                echo '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Success!</strong> Your password has updated successfully.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+            }
+            else {           
+                echo '<div class="alert alert-secondary alert-dismissible fade show" role="alert"><strong>Failed!</strong> Failed to update your password.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+            }
+        }
+        else {
+            echo '<div class="alert alert-secondary alert-dismissible fade show" role="alert"><strong>Failed!</strong> Password is not match. Try again.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+        }
+    }
+    else {
+        echo '<div class="alert alert-secondary alert-dismissible fade show" role="alert"><strong>Failed!</strong> Failed to update your password. Please try again.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+        
+    }
+}
+
     ?>
 
     <!-- change password -->
@@ -56,12 +97,33 @@
         <div class="popup-content">
             <div class="container">
                 <h2>Change password</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis totam qui mollitia velit soluta eius nulla tenetur eaque, reiciendis quia!</p>
+                
+                <form action="student_profile.php" method="post" autocomplete="off">
+                            <input type="hidden" name="snoEdit" id="snoEdit">
+
+                            <div class="mb-3">
+                                <label for="curp" class="form-label">Current password</label>
+                                <input type="password" class="form-control" id="curp" aria-describedby="emailHelp"
+                                    name="curp" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newp" class="form-label">New password</label>
+                                <input type="password" class="form-control" id="newp" aria-describedby="emailHelp"
+                                    name="newp" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="newcp" class="form-label">Confirm password</label>
+                                <input type="password" class="form-control" id="newcp" aria-describedby="emailHelp"
+                                    name="newcp" required>
+                            </div>
+                            <input id="demo" type="submit" class="btn btn-primary" style="width: 100%;"
+                                name="changePassword" value="confirmn"></input>
+                        </form>
             </div>
             <a class="closeBtn" href="javascript:void(0)">x</a>
         </div>
     </div>
-
+    
 
     <div class="container" style="font-family: 'PT Serif', serif;
     font-family: 'Ubuntu', sans-serif;">
@@ -112,7 +174,7 @@
     <!--===== MAIN JS =====-->
     <script src="../script/jquery.js"></script>
     <script src="../script/profile_sidebar.js"></script>
-    <script src="../script/change_password.js"></script>
+    <!-- <script src="../script/change_password.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
@@ -126,6 +188,28 @@
             // script for logout
             $("#logoutbtn").click(function () {
                 window.location.replace("student_logout.php");
+            })
+
+
+            // Open Popup
+            $('.openBtn').on('click', function () {
+                $('.cp').fadeIn(300);
+            });
+
+            // Close Popup
+            $('.closeBtn').on('click', function () {
+                $('.cp').fadeOut(300);
+            });
+
+            // Close Popup when Click outside
+            $('.cp').on('click', function () {
+                $('.cp').fadeOut(300);
+            }).children().click(function () {
+                return false;
+            });
+
+            $("#demo").click(function() {
+                alert("done");
             })
         })
     </script>

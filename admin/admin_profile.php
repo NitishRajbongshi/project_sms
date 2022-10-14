@@ -124,7 +124,7 @@
         <div class="main_box_1 mx-1 py-2 text-center bg-primary text-light">
             <h6>ADD</h6>
             <p class="text-light">Add one by one</p>
-            <button class="border border-primary"><i class="bi bi-plus-lg "></i></button>
+            <button id="add_student_one" class="border border-primary"><i class="bi bi-plus-lg "></i></button>
         </div>
         <div class="main_box_2 mx-1 py-2 text-center bg-primary text-light">
             <h6>ADD</h6>
@@ -141,7 +141,7 @@
         <div class="main_box_1 mx-1 py-2 text-center bg-primary text-light">
             <h6>ADD</h6>
             <p class="text-light">Add one by one</p>
-            <button class="border border-primary"><i class="bi bi-plus-lg"></i></button>
+            <button id="add_mentor_one" class="border border-primary"><i class="bi bi-plus-lg"></i></button>
         </div>
         <div class="main_box_2 mx-1 py-2 text-center bg-primary text-light">
             <h6>ADD</h6>
@@ -166,6 +166,16 @@
             // script for logout
             $("#logoutbtn").click(function () {
                 window.location.replace("admin_logout.php");
+            })
+
+            $("#add_student_one").click(function() {
+                window.location.replace("others/add_student.php");
+
+            })
+
+            $("#add_mentor_one").click(function() {
+                window.location.replace("others/add_mentor.php");
+
             })
         })
     </script>

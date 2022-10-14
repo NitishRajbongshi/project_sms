@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+span.back_to_home {
+    margin: 10px 30px;
+    display: block;
+    font-size: 0.8rem;
+}
+div.main_cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100%;
+}
+
+div.main_section {
+    width: 90%;
+    background-color: #fff;
+    margin: 20px;
+    box-shadow: 0px 0px 5px 1px #d1d7d1;
+    border-radius: 5px;
+}
+
+div.header_part,
+div.text_part {
+    padding: 20px;
+}
+
+div.header_part h2::after {
+    content: "NB: You have to add one student at a time.";
+    display: block;
+    font-size: 0.8rem;
+    color: #d6d6d6;
+}
+
+div.row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.col-25,
+.col-75,
+div.header_part h2 {
+    margin: 5px;
+    padding: 5px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+}
+
+.col-75 {
+    float: right;
+    width: 75%;
+}
+
+div.form_container form div.row input {
+    border: none;
+    border-bottom: 1px solid gray;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+div.form_container form div.row label {
+    font-size: 1.2rem;
+}
+
+div.submit_btnn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px;
+}
+
+div.submit_btnn button {
+    font-size: 1.2rem;
+    background: #1c2fcf;
+    border: none;
+    outline: none;
+    padding: 5px 30px;
+    color: white;
+}
+
+/* responsive */
+@media screen and (max-width: 700px) {
+    div.row {
+        flex-wrap: wrap;
+    }
+    div.col-25, div.col-75 {
+        width: 100%;
+    }
+}

@@ -22,7 +22,7 @@
                                 <label for="name">Full name: </label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="name" name="name" placeholder="firstname + lastname"  required>
+                                <input type="text" id="name" name="name" placeholder="myname title"  required>
                             </div>
                         </div>
                         <div class="row">
@@ -30,7 +30,7 @@
                                 <label for="email">Email id: </label>
                             </div>
                             <div class="col-75">
-                                <input type="email" id="email" name="email" placeholder="xxyyzz@gmail.com" required>
+                                <input type="email" id="email" name="email" placeholder="myemail@gmail.com" required>
                             </div>
                         </div>
                         <div class="row">
@@ -46,7 +46,7 @@
                                 <label for="rollno">Roll No: </label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="rollno" name="rollno" placeholder="CSM21033" required>
+                                <input type="text" id="rollno" name="rollno" placeholder="csm21033" required>
                             </div>
                         </div>
                         <div class="row">

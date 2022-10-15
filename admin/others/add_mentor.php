@@ -3,7 +3,7 @@
     if(($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !isset($_SESSION['loggedin']) || !isset($_SESSION['adminLogin'])) {
         session_unset();
         session_destroy();
-        header('location: admin_login.php');
+        header('location: ../admin_login.php');
         exit;
     }
 ?>

@@ -13,18 +13,18 @@
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
-            <a href="#" class="nav__logo">
+            <a href="admin_profile.php" class="nav__logo">
                 <i class="bx bx-layer nav__logo-icon"></i>
                 <span class="nav__logo-name">SMS</span>
             </a>
             <div class="nav__list">
-                <a href="#" class="nav__link active">
+                <a href="admin_profile.php" class="nav__link">
                     <i class="bi bi-person-circle"></i>
                     <span class="nav__name">Profile</span>
                 </a>
-                <a href="#" class="nav__link">
+                <a href="database.php" class="nav__link">
                     <i class="bx bx-stopwatch nav__icon"></i>
-                    <span class="nav__name">Meeting</span>
+                    <span class="nav__name">Database</span>
                 </a>
                 <a href="#" class="nav__link">
                     <i class="bx bx-message-square-detail nav__icon"></i>

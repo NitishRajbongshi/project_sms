@@ -35,10 +35,6 @@
     <link rel="stylesheet" href="style/button.css">
     <link rel="stylesheet" href="../style/popup_style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <style type="text/css">
-        
-    </style>
-
     <title>Admin_profile</title>
 </head>
 

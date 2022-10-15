@@ -13,10 +13,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="../style/add_student_mentor.css">
+    
+    <!-- sweet alert CDN -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- <script src="script/sweetAlertStudent.js" defer></script> -->
+
+    <!-- script for sweet alert -->
     <script defer>
         function studentAdded() {
             swal({
@@ -63,7 +69,7 @@
             });
         }
     </script>
-    <title>Document</title>
+    <title>Add student</title>
 </head>
 <body>
 
@@ -117,7 +123,6 @@
                                 <label for="academic_year">Academic year: </label>
                             </div>
                             <div class="col-75">
-                                <!-- <input type="date" id="academic_year" name="academic_year" placeholder="2022" required> -->
                                 <input type="number" min="2021" max="2099" step="1" id="academic_year" name="academic_year" placeholder="2022" />
                             </div>
                         </div>
@@ -134,6 +139,8 @@
     </div>
 
     <script src="../script/jquery.js"></script>
+
+    <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

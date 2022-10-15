@@ -15,7 +15,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/add_student_mentor.css">
-    <title>Document</title>
+
+    <!-- sweet alert CDN -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- script for sweet alert -->
+    <script defer>
+        function studentAdded() {
+            swal({
+                title: "Success!",
+                text: "Added a new student!",
+                icon: "success",
+                button: "Close",
+            });
+        }
+
+        function studentNotAdded() {
+            swal({
+                title: "Failed!",
+                text: "Failed to add student!",
+                icon: "error",
+                button: "Close",
+            });
+        }
+
+        function rollnoDuplication() {
+            swal({
+                title: "Failed!",
+                text: "Roll no is already exist!",
+                icon: "error",
+                button: "Close",
+            });
+        }
+
+        function emailDuplication() {
+            swal({
+                title: "Failed!",
+                text: "Email Id is already exist!",
+                icon: "error",
+                button: "Close",
+            });
+        }
+
+        function phoneDuplication() {
+            swal({
+                title: "Failed!",
+                text: "Phone number is already exist!",
+                icon: "error",
+                button: "Close",
+            });
+        }
+    </script>
+    <title>Add mentor</title>
 </head>
 <body>
 <div class="main_cont">

@@ -8,6 +8,29 @@
     <link rel="stylesheet" href="../style/login_style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- sweet alert CDN -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- script for sweet alert -->
+    <script defer>
+        function passwordFailure() {
+            swal({
+                title: "Failed!",
+                text: "Password is not match!",
+                icon: "error",
+                button: "Close",
+            });
+        }
+
+        function emailFailure() {
+            swal({
+                title: "Failed!",
+                text: "Email Id is not found!",
+                icon: "error",
+                button: "Close",
+            });
+        }
+    </script>
     <title>Mentor Login</title>
 </head>
 
@@ -34,24 +57,18 @@
                     }
                     else {
                         echo'
-                            <div class="container mt-2">
-                            <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                            <strong>Failed!</strong> Password is not match.
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                            </div>
+                            <script>
+                                passwordFailure();
+                            </script>
                         ';
                     }
                 }
             }
             else {
                 echo'
-                    <div class="container mt-2">
-                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    <strong>Failed!</strong> Email Id is not found. 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    </div>
+                    <script>
+                        emailFailure();
+                    </script>
                 ';
             }
         }

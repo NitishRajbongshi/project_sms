@@ -23,7 +23,7 @@
                     <span class="nav__name">Profile</span>
                 </a>
                 <a href="database.php" class="nav__link">
-                    <i class="bx bx-stopwatch nav__icon"></i>
+                    <i class="bi bi-server"></i>
                     <span class="nav__name">Database</span>
                 </a>
                 <a href="#" class="nav__link">
@@ -31,8 +31,8 @@
                     <span class="nav__name">Notification</span>
                 </a>
                 <a href="#" class="nav__link">
-                    <i class="bx bx-list-ul nav__icon"></i>
-                    <span class="nav__name">Lists</span>
+                    <i class="bi bi-question-square-fill"></i>
+                    <span class="nav__name">Task</span>
                 </a>
                 <a href="#" class="nav__link">
                     <i class="bx bx-mail-send nav__icon"></i>

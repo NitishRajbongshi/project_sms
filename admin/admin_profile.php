@@ -1,11 +1,11 @@
-<?php 
-    session_start();
-    if(($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !isset($_SESSION['loggedin']) || !isset($_SESSION['adminLogin'])) {
-        session_unset();
-        session_destroy();
-        header('location: admin_login.php');
-        exit;
-    }
+<?php
+session_start();
+if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !isset($_SESSION['loggedin']) || !isset($_SESSION['adminLogin'])) {
+    session_unset();
+    session_destroy();
+    header('location: admin_login.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,8 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
@@ -26,8 +25,7 @@
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Ubuntu:wght@300;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
 
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="../style/profile_sidebar.css">
@@ -40,27 +38,36 @@
 
 <body id="body-pd">
     <?php
-        include 'partials/_navbar.php';
+    include 'partials/_navbar.php';
 
-        // logout and redirect to index page
-        if(isset($_POST['logout'])) {
-            header("location: admin_logout.php");
-            exit;
-        }
+    // logout and redirect to index page
+    if (isset($_POST['logout'])) {
+        header("location: admin_logout.php");
+        exit;
+    }
     ?>
 
     <!-- change password -->
     <div class="cp">
         <div class="popup-content">
             <h2>Change password</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                id
-                laborum.</p>
+            <form action="/php_tutorial/EVS/profile.php" method="post" autocomplete="off">
+                <input type="hidden" name="snoEdit" id="snoEdit">
+
+                <div class="mb-3">
+                    <label for="curp" class="form-label">Current password</label>
+                    <input type="password" class="form-control" id="curp" aria-describedby="emailHelp" name="curp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="newp" class="form-label">New password</label>
+                    <input type="password" class="form-control" id="newp" aria-describedby="emailHelp" name="newp" required maxlength="30">
+                </div>
+                <div class="mb-3">
+                    <label for="newcp" class="form-label">Confirm password</label>
+                    <input type="password" class="form-control" id="newcp" aria-describedby="emailHelp" name="newcp" required maxlength="30">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" name="conpass">CONFIRM</button>
+            </form>
             <a class="closeBtn" href="javascript:void(0)">x</a>
         </div>
     </div>
@@ -69,14 +76,28 @@
     <div class="cprof">
         <div class="popup-content">
             <h2>Update Profile</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                id
-                laborum.</p>
+            <form action="/php_tutorial/EVS/admin/admin_profile.php" method="post" autocomplete="off">
+                <input type="hidden" name="snoEdit" id="snoEdit">
+
+                <div class="mb-3">
+                    <label for="curp" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="curp" aria-describedby="emailHelp" name="curp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="newun" class="form-label">New Username</label>
+                    <input type="text" class="form-control" id="newun" aria-describedby="emailHelp" name="newun" required value="<?php echo $_SESSION['username']; ?>" maxlength="25">
+                </div>
+                <div class="mb-3">
+                    <label for="newm" class="form-label">New Mobile No.</label>
+                    <input type="text" class="form-control" id="newm" aria-describedby="emailHelp" name="newm" required value="<?php echo $_SESSION['mobile']; ?>" maxlength="10" minlength="10" oninvalid="this.setCustomValidity('Invalid mobile number!')" oninput="setCustomValidity('')">
+                </div>
+                <div class="mb-3">
+                    <label for="newe" class="form-label">New email</label>
+                    <input type="email" class="form-control" id="newe" aria-describedby="emailHelp" name="newe" required value="<?php echo $_SESSION['email']; ?>" maxlength="50">
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;" name="conun">CONFIRM</button>
+            </form>
             <a class="closeBtn" href="javascript:void(0)">x</a>
         </div>
     </div>
@@ -85,8 +106,7 @@
     font-family: 'Ubuntu', sans-serif;">
         <div class="row featurette pt-3">
             <div class="col-md-5 order-md-1 d-flex">
-                <img class="flex-shrink-0 bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                    width="300" height="200" src="../photo/profile_student.png" alt="Student profile">
+                <img class="flex-shrink-0 bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300" height="200" src="../photo/profile_student.png" alt="Student profile">
             </div>
             <div class="col-md-7 order-md-2">
                 <h4 class="text-dark text-sm-left pt-5">Hello,
@@ -110,7 +130,7 @@
             </div>
         </div>
     </div>
-    <hr class="featurette-divider">
+    <!-- <hr class="featurette-divider"> -->
 
 
 
@@ -125,11 +145,11 @@
         <div class="main_box_2 mx-1 py-2 text-center bg-primary text-light">
             <h6>ADD</h6>
             <p class="text-light">Select from a sheet</p>
-            <button class="border border-primary"><i class="bi bi-plus-lg"></i></button>
+            <button class="border border-primary" id="select_student_all"><i class="bi bi-plus-lg"></i></button>
         </div>
     </div>
 
-    <hr class="featurette-divider">
+    <!-- <hr class="featurette-divider"> -->
 
     <!-- add mentor -->
     <h5 class="my-4 py-1 text-bold">Add Mentors</h5>
@@ -142,7 +162,7 @@
         <div class="main_box_2 mx-1 py-2 text-center bg-primary text-light">
             <h6>ADD</h6>
             <p class="text-light">Select from a sheet</p>
-            <button class="border border-primary"><i class="bi bi-plus-lg"></i></button>
+            <button id="select_mentor_all" class="border border-primary"><i class="bi bi-plus-lg"></i></button>
         </div>
     </div>
 
@@ -151,16 +171,14 @@
 
     <!--===== MAIN JS =====-->
     <script src="../script/profile_sidebar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="../script/jquery.js"></script>
     <script src="../script/change_password.js"></script>
     <script src="../script/update_profile.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // script for logout
-            $("#logoutbtn").click(function () {
+            $("#logoutbtn").click(function() {
                 window.location.replace("admin_logout.php");
             })
 
@@ -172,6 +190,14 @@
             $("#add_mentor_one").click(function() {
                 window.location.replace("others/add_mentor.php");
 
+            })
+
+            $("#select_student_all").click(function() {
+                window.location.replace("files/student.php");
+            })
+
+            $("#select_mentor_all").click(function() {
+                window.location.replace("files/mentor.php");
             })
         })
     </script>

@@ -83,12 +83,22 @@
             <div class="col-md-5 order-md-1 d-flex">
                 <img class="flex-shrink-0 bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300" height="200" src="../photo/profile_student.png" alt="Student profile">
             </div>
-            <div class="col-md-7 order-md-2">
-                <h4 class="text-dark text-sm-left pt-4">Hello, <?php echo $_SESSION['username']; ?></h4>
-                <p class="lead mb-1">Email: <?php echo $_SESSION['email']; ?></p>
-                <p class="lead mb-1">Mobile: <?php echo $_SESSION['phone']; ?></p>
-                <p class="lead mb-1">Mentor ID: <?php echo $_SESSION['mentorId']; ?></p>
-                <p class="lead mb-1">Depertment: CSE</p>
+            <div class="col-md-7 order-md-2 pt-3">
+                <h4 class="text-dark text-sm-left pt-4">Hello, 
+                    <?php echo $_SESSION['username']; ?>
+                </h4>
+                <p class="lead mb-1">Email: 
+                    <?php echo $_SESSION['email']; ?>
+                </p>
+                <p class="lead mb-1">Mobile: 
+                    <?php echo $_SESSION['phone']; ?>
+                </p>
+                <p class="lead mb-1">Mentor ID: 
+                    <?php echo $_SESSION['mentorId']; ?>
+                </p>
+                <p class="lead mb-1">Depertment: 
+                    <?php echo $_SESSION['department']; ?>
+                </p>
                 <div class="chng_btn">
                     <button type="button" class="btn btn-outline-success my-2 openBtn" id="change_pass_admin">Change
                         password</button>

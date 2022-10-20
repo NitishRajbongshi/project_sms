@@ -11,7 +11,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
 <!DOCTYPE html>
 <html>
    <head>
-     <title>Import Data From Excel or CSV File to Mysql using PHPSpreadsheet</title>
+     <title>Add mentor</title>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
@@ -55,7 +55,7 @@ $(document).ready(function(){
   $('#import_excel_form').on('submit', function(event){
     event.preventDefault();
     $.ajax({
-      url:"import_student.php",
+      url:"import_mentor.php",
       method:"POST",
       data:new FormData(this),
       contentType:false,

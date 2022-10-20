@@ -40,7 +40,7 @@
         if($_SERVER['REQUEST_METHOD'] == "POST") {
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $sql = "SELECT * FROM `mentor_login` WHERE `mentor_email`= '$email'";
+            $sql = "SELECT * FROM `mentor` WHERE `mentor_email`= '$email'";
             $result = mysqli_query($conn, $sql);
             $no_row = mysqli_num_rows($result);
             if($no_row == 1) {
@@ -51,8 +51,9 @@
                         $_SESSION['mentorLogin'] = true;
                         $_SESSION['mentorId'] = $row['mentor_id'];
                         $_SESSION['email'] = $email;
-                        $_SESSION['username'] = $row['mentor_name'];
+                        $_SESSION['username'] = $row['mentor_firstname'] . ' '. $row['mentor_lastname'];
                         $_SESSION['phone'] = $row['mentor_phone'];
+                        $_SESSION['department'] = $row['mentor_department'];
                         header('location: mentor_profile.php');
                     }
                     else {

@@ -31,7 +31,7 @@ if($_FILES["import_excel"]["name"] != '')
   $spreadsheet = $reader->load($file_name);
 
   unlink($file_name);
-
+    $i = 0;
   $data = $spreadsheet->getActiveSheet()->toArray();
   $password = '1234';
   $hash_password = password_hash($password, PASSWORD_DEFAULT);
@@ -41,18 +41,25 @@ if($_FILES["import_excel"]["name"] != '')
     ':rollno'  => $row[0],
     ':student_email'  => $row[1],
     ':student_phone'  => $row[2],
-    ':student_name'  => $row[3],
+    ':student_firstname'  => $row[3],
+    ':student_lastname'  => $row[4],
+    ':academic_year'  => $row[5],
+    ':student_depertment'  => $row[6],
+    ':student_program'  => $row[7],
+    ':student_semester'  => $row[8],
     ':password'  => $hash_password
    );
 
    $query = "
-   INSERT INTO student_login 
-   (rollno, student_email, student_phone, student_name, student_password) 
-   VALUES (:rollno, :student_email, :student_phone, :student_name, :password)
+   INSERT INTO student 
+   (rollno, student_email, student_phone, student_firstname, student_lastname, academic_year, student_depertment,student_program,student_semester, student_password) 
+   VALUES (:rollno, :student_email, :student_phone, :student_firstname, :student_lastname, :academic_year, :student_depertment, :student_program, :student_semester, :password)
    ";
 
    $statement = $connect->prepare($query);
    $statement->execute($insert_data);
+   $i = $i + 1;
+   echo $i;
   }
   $message = '<div class="alert alert-success">Data Imported Successfully</div>';
 

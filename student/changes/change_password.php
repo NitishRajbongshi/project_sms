@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         $ncp = $_POST['newcp'];
         $rollno = $_SESSION['rollno'];
 
-        $sql = "SELECT `student_password` FROM `student_login` WHERE `rollno` = '$rollno'";
+        $sql = "SELECT `student_password` FROM `student` WHERE `rollno` = '$rollno'";
         $result = mysqli_query($conn, $sql);
         $no_row = mysqli_num_rows($result);
         if($no_row == 1) {            
@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             }
             if(($np == $ncp) && $oldpassmatch == true) {
                 $new_hash = password_hash($np, PASSWORD_DEFAULT);
-                $sql = "UPDATE `student_login` SET `password`='$new_hash' WHERE `rollno` = '$rollno'";
+                $sql = "UPDATE `student` SET `password`='$new_hash' WHERE `rollno` = '$rollno'";
                 $result = mysqli_query($conn, $sql);
                 if ($result) {
                     echo '<div class="alert alert-success alert-dismissible fade show" role="alert"><strong>Success!</strong> Your password has updated successfully.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';

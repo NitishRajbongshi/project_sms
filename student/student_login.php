@@ -39,7 +39,7 @@
         if($_SERVER['REQUEST_METHOD'] == "POST") {
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $sql = "SELECT * FROM `student_login` WHERE `student_email`= '$email'";
+            $sql = "SELECT * FROM `student` WHERE `student_email`= '$email'";
             $result = mysqli_query($conn, $sql);
             $no_row = mysqli_num_rows($result);
             if($no_row == 1) {
@@ -50,8 +50,10 @@
                         $_SESSION['studentLogin'] = true;
                         $_SESSION['rollno'] = $row['rollno'];
                         $_SESSION['email'] = $email;
-                        $_SESSION['username'] = $row['student_name'];
+                        $_SESSION['username'] = $row['student_firstname'].' '.$row['student_lastname'];
                         $_SESSION['phone'] = $row['student_phone'];
+                        $_SESSION['depertment'] = $row['student_depertment'];
+                        $_SESSION['program'] = $row['student_program'];
                         header('location: student_profile.php');
                     }
                     else {

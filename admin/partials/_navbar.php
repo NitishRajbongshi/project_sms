@@ -30,7 +30,7 @@
                     <i class="bx bx-message-square-detail nav__icon"></i>
                     <span class="nav__name">Notification</span>
                 </a>
-                <a href="#" class="nav__link">
+                <a href="task.php" class="nav__link">
                     <i class="bi bi-question-square-fill"></i>
                     <span class="nav__name">Task</span>
                 </a>

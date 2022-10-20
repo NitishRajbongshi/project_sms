@@ -65,7 +65,7 @@ div.header_part h2 {
 
 div.form_container form div.row input {
     border: none;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #c2cdef;
     outline: none;
     background-color: transparent;
     width: 96%;
@@ -74,6 +74,7 @@ div.form_container form div.row input {
 
 div.form_container form div.row label {
     font-size: 1.2rem;
+    color: #787881;
 }
 
 div.submit_btnn {

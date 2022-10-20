@@ -78,7 +78,7 @@
     include "php_script/add_student.php";
 ?>
 <div class="main_cont">
-        <div class="main_section">
+        <div class="main_section px-3">
             <span class="back_to_home"><a href="../admin_profile.php">Home</a> >> <span>add new student</span></span>
             <div class="header_part">
                 <h2 class="text-center text-primary">Add new student</h2>
@@ -88,10 +88,18 @@
                     <form action="add_student.php" method="post">
                         <div class="row">
                             <div class="col-25">
-                                <label for="name">Full name: </label>
+                                <label for="fname">First name: </label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="name" name="name" placeholder="myname title"  required>
+                                <input type="text" id="fname" name="fname" placeholder=""  required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">Last name: </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="lname" name="lname" placeholder=""  required>
                             </div>
                         </div>
                         <div class="row">
@@ -99,7 +107,7 @@
                                 <label for="email">Email id: </label>
                             </div>
                             <div class="col-75">
-                                <input type="email" id="email" name="email" placeholder="myemail@gmail.com" required>
+                                <input type="email" id="email" name="email" placeholder="" required>
                             </div>
                         </div>
                         <div class="row">
@@ -107,7 +115,7 @@
                                 <label for="phone">Phone: </label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="phone" name="phone" placeholder="0123456789" required>
+                                <input type="text" id="phone" name="phone" placeholder="" required>
                             </div>
                         </div>
                         <div class="row">
@@ -115,9 +123,10 @@
                                 <label for="rollno">Roll No: </label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="rollno" name="rollno" placeholder="csm21033" required>
+                                <input type="text" id="rollno" name="rollno" placeholder="" required>
                             </div>
                         </div>
+                        <!-- dropdown -->
                         <div class="row">
                             <div class="col-25">
                                 <label for="academic_year">Academic year: </label>

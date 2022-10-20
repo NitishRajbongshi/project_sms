@@ -1,3 +1,7 @@
+nav {
+    font-family: 'Ubuntu', sans-serif;
+}
+
 .cont {
     /* justify-content: center; */
     flex-wrap: wrap;

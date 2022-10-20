@@ -135,8 +135,8 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
 
 
     <!-- add students -->
-    <h5 class="my-4 py-1 text-bold">Add students</h5>
-    <div class="cont d-flex">
+    <h5 class="my-4 py-1 text-bold" style="font-family: 'Ubuntu', sans-serif;">Add students</h5>
+    <div class="cont d-flex" style="font-family: 'Ubuntu', sans-serif;">
         <div class="main_box_1 mx-1 py-2 text-center bg-primary text-light">
             <h6>ADD</h6>
             <p class="text-light">Add one by one</p>
@@ -152,8 +152,8 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <!-- <hr class="featurette-divider"> -->
 
     <!-- add mentor -->
-    <h5 class="my-4 py-1 text-bold">Add Mentors</h5>
-    <div class="cont d-flex">
+    <h5 class="my-4 py-1 text-bold" style="font-family: 'Ubuntu', sans-serif;">Add Mentors</h5>
+    <div class="cont d-flex" style="font-family: 'Ubuntu', sans-serif;">
         <div class="main_box_1 mx-1 py-2 text-center bg-primary text-light">
             <h6>ADD</h6>
             <p class="text-light">Add one by one</p>

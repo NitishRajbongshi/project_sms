@@ -41,10 +41,77 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <?php
     include 'partials/_navbar.php';
     include '../partials/_dbconnect.php';
-    // logout and redirect to index page
+    // logout and redirect to index page 
     if (isset($_POST['logout'])) {
         header("location: admin_logout.php");
         exit;
+    }
+    if(isset($_POST['assign_mentor'])) {
+        $selected_dept = $_POST["select_dept"];
+        $selected_year = $_POST["academic_year"];
+        $selected_spm = $_POST["student_per_mentor"];
+
+        // algorithm to select mentor randomly
+        $sql = "
+        SELECT * FROM `mentor` WHERE `mentor_department` = '$selected_dept'
+        ";
+
+        $result = mysqli_query($conn, $sql);
+        $no_of_rows = mysqli_num_rows($result);
+        $student_not_found = false;
+
+        if($no_of_rows > 0) {
+            while(($rows = mysqli_fetch_assoc($result)) && ($student_not_found == false)) {
+                $mentor_id = $rows['mentor_id'];
+                $i = 1;
+                $check = '0';
+                $sqll = "
+                SELECT * FROM `student` WHERE `academic_year` = '$selected_year' AND `student_depertment` = '$selected_dept' AND `assign_mentor` = '$check'
+                ";
+                $results = mysqli_query($conn, $sqll);
+                $nos_of_rows = mysqli_num_rows($results);
+                if($nos_of_rows > 0) {
+                    while($row = mysqli_fetch_assoc($results)) {
+                        $roll_no = $row['rollno'];
+
+                        if($i <= $selected_spm) {
+                            $update_sql = "UPDATE `student` SET `assign_mentor`='$mentor_id' WHERE `rollno` = '$roll_no'";
+                            $update_result = mysqli_query($conn, $update_sql);
+                            if($update_result) {
+                                echo "assign success <br>";
+                                $i = $i + 1;
+                            }
+                            else {
+                                $student_not_found = true;
+                                echo "assing failed <br>";
+                            }
+                        }
+                        else {
+                            break;
+                        }
+
+                        // for($i = 1; $i <= $selected_spm; $i++) {
+                        //     $update_sql = "UPDATE `student` SET `assign_mentor`='$mentor_id' WHERE `rollno` = '$roll_no' AND `assign_mentor` = '$check'";
+                        //     $update_result = mysqli_query($conn, $update_sql);
+                        //     if($update_result) {
+                        //         echo "assign success <br>";
+                        //     }
+                        //     else {
+                        //         echo "assing failed <br>";
+                        //     }
+                        // }
+                        // break;
+                    }
+                }
+
+                else {
+                    echo "no student is found <br>";
+                }
+            }
+        }
+        else {
+            echo "mentor not available. <br>";
+        }
     }
     ?>
     <div class="container p-4 text-center text-primary fw-bold">
@@ -53,25 +120,31 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     </h3>    
     </div>
     <div class="container p-4 my-2 shadow-sm mb-5 bg-white rounded">
-        <form class="row g-3">
+        <form class="row g-3" action="task.php" method="post">
             <div class="col-12">
                 <label for="inputState" class="form-label">Department</label>
-                <select id="inputState" class="form-select"  required>
-                    <option selected>Choose Department</option>
-                    <option>Computer Science & Engineering</option>
+                <select id="inputState" class="form-select" name="select_dept"  required>
+                    <option value="" selected>Choose Department</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                    <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Assamese">Assamese</option>
                 </select>
             </div>
             <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Accademic Year</label>
-                <input type="email" class="form-control" id="inputEmail4" required>
+                <label for="academic_year" class="form-label">Accademic Year</label>
+                <input type="number" min="2021" max="2099" step="1" class="form-control" id="academic_year" name="academic_year" placeholder="2021" required>
             </div>
             <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">No. of students / Mentor</label>
-                <input type="password" class="form-control" id="inputPassword4" required>
+                <label for="student_per_mentor" class="form-label">No. of students / Mentor</label>
+                <input type="text" class="form-control" id="student_per_mentor" name="student_per_mentor" placeholder="3" required>
             </div>
             
             <div class="col-12" >
-                <button id="assign_btn" type="submit" class="btn btn-primary">Assign mentor</button>
+                <button id="assign_btn" type="submit" class="btn btn-primary" name="assign_mentor">Assign mentor</button>
             </div>
         </form>
     </div>

@@ -26,7 +26,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- ===== CSS ===== -->
@@ -54,7 +54,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <div class="container my-5">
         <table class="table" id="student_table">
             <thead>
-                <tr>
+                <tr style="font-family: 'Ubuntu', sans-serif;">
                     <th scope="col">S.No</th>
                     <th scope="col">Roll no</th>
                     <th scope="col">Name</th>
@@ -70,10 +70,10 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
             </tbody>
         </table>
     </div>
-    <div class="container my-5">
+    <div class="container my-5" >
         <table class="table" id="mentor_table">
             <thead>
-                <tr>
+                <tr style="font-family: 'Ubuntu', sans-serif;">
                     <th scope="col">S.No</th>
                     <th scope="col">Mentor Id</th>
                     <th scope="col">Name</th>

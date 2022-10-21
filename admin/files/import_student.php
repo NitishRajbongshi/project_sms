@@ -48,13 +48,14 @@ if($_FILES["import_excel"]["name"] != '')
       ':student_depertment'  => $row[6],
       ':student_program'  => $row[7],
       ':student_semester'  => $row[8],
-      ':password'  => $hash_password
+      ':password'  => $hash_password,
+      ':assign_mentor' => '0'
      );
   
      $query = "
      INSERT INTO student 
-     (rollno, student_email, student_phone, student_firstname, student_lastname, academic_year, student_depertment,student_program,student_semester, student_password) 
-     VALUES (:rollno, :student_email, :student_phone, :student_firstname, :student_lastname, :academic_year, :student_depertment, :student_program, :student_semester, :password)
+     (rollno, student_email, student_phone, student_firstname, student_lastname, academic_year, student_depertment,student_program,student_semester, student_password, assign_mentor) 
+     VALUES (:rollno, :student_email, :student_phone, :student_firstname, :student_lastname, :academic_year, :student_depertment, :student_program, :student_semester, :password, :assign_mentor)
      ";
   
      $statement = $connect->prepare($query);

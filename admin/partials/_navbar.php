@@ -6,7 +6,7 @@
     </div>
     <div class="header__img icon_section">
         <a href="#"><i class="bi bi-arrow-bar-up"></i></a>
-        <a href="#"><i class="bi bi-person-circle profile_icon"></i></a>
+        <a href="../admin_profile.php"><i class="bi bi-person-circle profile_icon"></i></a>
     </div>
 </header>
 
@@ -27,8 +27,8 @@
                     <span class="nav__name">Database</span>
                 </a>
                 <a href="#" class="nav__link">
-                    <i class="bx bx-message-square-detail nav__icon"></i>
-                    <span class="nav__name">Notification</span>
+                    <i class="bi bi-server"></i>
+                    <span class="nav__name">Relation</span>
                 </a>
                 <a href="task.php" class="nav__link">
                     <i class="bi bi-question-square-fill"></i>
@@ -37,6 +37,10 @@
                 <a href="#" class="nav__link">
                     <i class="bx bx-mail-send nav__icon"></i>
                     <span class="nav__name">Query</span>
+                </a>
+                <a href="#" class="nav__link">
+                    <i class="bx bx-mail-send nav__icon"></i>
+                    <span class="nav__name">Add Result</span>
                 </a>
             </div>
         </div>

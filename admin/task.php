@@ -33,8 +33,14 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <link rel="stylesheet" href="../style/profile_sidebar.css">
     <link rel="stylesheet" href="../style/bg_color.css">
     <link rel="stylesheet" href="style/task_style.css">
-
+    
     <title>Task</title>
+
+    <style>
+        span#details_btn:hover {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body id="body-pd">
@@ -46,20 +52,37 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
         header("location: admin_logout.php");
         exit;
     }
+    ?>
+
+    <div class="container p-4 text-center text-primary fw-bold">
+    <h3>
+        ASSIGN MENTOR
+    </h3>    
+    
+    </div>
+
+    <!-- <div class="shadow-sm p-3 mb-5 bg-body rounded text-secondary">
+        This is some text within a card body.
+        <a href="#show_details_card" id="show_details">More details</a>
+    </div> -->
+
+    <?php
     if(isset($_POST['assign_mentor'])) {
         $selected_dept = $_POST["select_dept"];
         $selected_year = $_POST["academic_year"];
         $selected_spm = $_POST["student_per_mentor"];
-
+        $no_of_assign_student = 0;
+        $assign_success = false;
+        
         // algorithm to select mentor randomly
         $sql = "
         SELECT * FROM `mentor` WHERE `mentor_department` = '$selected_dept'
         ";
-
+        
         $result = mysqli_query($conn, $sql);
         $no_of_rows = mysqli_num_rows($result);
         $student_not_found = false;
-
+        
         if($no_of_rows > 0) {
             while(($rows = mysqli_fetch_assoc($result)) && ($student_not_found == false)) {
                 $mentor_id = $rows['mentor_id'];
@@ -73,52 +96,68 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
                 if($nos_of_rows > 0) {
                     while($row = mysqli_fetch_assoc($results)) {
                         $roll_no = $row['rollno'];
-
+                        
                         if($i <= $selected_spm) {
                             $update_sql = "UPDATE `student` SET `assign_mentor`='$mentor_id' WHERE `rollno` = '$roll_no'";
                             $update_result = mysqli_query($conn, $update_sql);
                             if($update_result) {
-                                echo "assign success <br>";
+                                $no_of_assign_student = $no_of_assign_student + 1;
+                                $assign_success = true;
+                                // echo '
+                                // <div class="shadow-sm p-3 mb-5 bg-body rounded text-secondary">
+                                //     Success: mentor assign successful.
+                                //     <a href="#show_details_card" class="show_details">More details</a>
+                                // </div>
+                                // ';
                                 $i = $i + 1;
                             }
                             else {
-                                $student_not_found = true;
-                                echo "assing failed <br>";
+                                echo '
+                                <div class="shadow-sm p-3 mb-5 bg-body rounded text-secondary">
+                                    Failed: Failed to assign mentor.
+                                    <a href="#show_details_card" class="show_details">More details</a>
+                                </div>
+                                ';
                             }
                         }
                         else {
                             break;
                         }
-
-                        // for($i = 1; $i <= $selected_spm; $i++) {
-                        //     $update_sql = "UPDATE `student` SET `assign_mentor`='$mentor_id' WHERE `rollno` = '$roll_no' AND `assign_mentor` = '$check'";
-                        //     $update_result = mysqli_query($conn, $update_sql);
-                        //     if($update_result) {
-                        //         echo "assign success <br>";
-                        //     }
-                        //     else {
-                        //         echo "assing failed <br>";
-                        //     }
-                        // }
-                        // break;
                     }
-                }
-
+                }               
                 else {
-                    echo "no student is found <br>";
+                    $student_not_found = true;
+                    if(!$assign_success) {
+                        echo '
+                        <div class="shadow-sm p-3 mb-5 bg-body rounded text-secondary">
+                            Warning: No student found.
+                        </div>
+                        ';
+                    }
+
                 }
             }
         }
         else {
-            echo "mentor not available. <br>";
+            echo '
+            <div class="shadow-sm p-3 mb-5 bg-body rounded text-secondary">
+                Warning: Mentor not available
+            </div>
+            ';
+        }
+
+        if($no_of_assign_student > 0) {
+            echo '
+            <div class="shadow-sm p-3 mb-5 bg-body rounded text-secondary">
+                Success: mentor assign to total '.$no_of_assign_student .' students.
+                <a href="#show_details_card" class="show_details">More details</a>
+            </div>
+            ';
+            $no_of_assign_student = 0;
         }
     }
     ?>
-    <div class="container p-4 text-center text-primary fw-bold">
-    <h3>
-        ASSIGN MENTOR
-    </h3>    
-    </div>
+    
     <div class="container p-4 my-2 shadow-sm mb-5 bg-white rounded">
         <form class="row g-3" action="task.php" method="post">
             <div class="col-12">
@@ -149,15 +188,27 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
         </form>
     </div>
 
-    <div class="container p-4 my-4 shadow-sm p-3 mb-5 bg-white rounded">
+    <div class="container p-4 my-4 shadow-sm p-3 mb-5 bg-white rounded" style="display: none;" id="show_details_card">
         <div class="card">
             <div class="card-header text-center">
               Status
             </div>
             <div class="card-body">
               <blockquote class="blockquote mb-0 fs-6">
-                <p>Total 25 students have assigned a mentor from CSE, 2021 batch </p>
-                <p>Warning: Total 2 students have not assigned any mentor.</p>
+                <p>
+                    Success: Mentor assign successful.
+                    Department:  
+                    <?php 
+                    echo $selected_dept . ', '. $selected_year;
+                    ?>batch 
+                </p>
+                <p>
+                    For each mentor, Number of students assign:  
+                    <?php
+                        echo $selected_spm;
+                    ?>
+                </p>
+                
                 <footer class="blockquote-footer py-3">
                     See more details on database section 
                     <!-- <cite title="Source Title">Source Title</cite> -->
@@ -178,6 +229,10 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
             // script for logout
             $("#logoutbtn").click(function() {
                 window.location.replace("admin_logout.php");
+            })
+
+            $('.show_details').click(function() {
+                $("#show_details_card").fadeIn("slow");
             })
         })
     </script>

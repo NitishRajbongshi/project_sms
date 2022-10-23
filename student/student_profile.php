@@ -39,6 +39,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
 <body id="body-pd">
     <?php
     include "partials/_navbar.php";
+    include "../partials/_dbconnect.php";
     include "changes/change_password.php";
 
     // logout and redirect to index page
@@ -145,24 +146,54 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
         </div>
     </div>
     <!-- <hr class="featurette-divider"> -->
-    <div class="container my-2 mentor_details" style="font-family: 'PT Serif', serif;
-    font-family: 'Ubuntu', sans-serif;">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 text-dark text-center py-4">
-                <h5 class="font-weight-light py-2" id="mentor_details">See mentor details</h5>
-                <div id="mentor_detail_show">
-                    <h5 class="font-weight-light text-secondary">Mentor: prof. nameof professor</h5>
-                    <p class="font-weight-light text-secondary">Email: myprof@gmail.com</p>
-                    <p class="font-weight-light text-secondary">Phone: 6001020913</p>
+    <?php
+
+        if($_SESSION['mentor_id'] == 0) {
+            echo '
+                <div class="container my-2 mentor_details">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 text-dark text-center py-4">
+                            <h5 class="font-weight-light py-2" id="mentor_details">See mentor details</h5>
+                            <div id="mentor_detail_show">
+                                <h5 class="font-weight-light text-secondary">There is currently no mentor assigned to you.</h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- <div class="row">
-            <div class="col text-center m-3">
-                <a href="#" class="btn btn-green bg-danger text-white">Asked query</a>
-            </div>
-        </div> -->
-    </div>
+            ';
+        }
+        else {
+            $mentor_id = $_SESSION['mentor_id'];
+            $sql = "
+            SELECT * FROM `mentor` WHERE `mentor_id` = '$mentor_id'
+            ";
+            $result = mysqli_query($conn, $sql);
+            if($result) {
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo '
+                    <div class="container my-2 mentor_details">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 text-dark text-center py-4">
+                            <h5 class="font-weight-light py-2" id="mentor_details">See mentor details</h5>
+                            <div id="mentor_detail_show">
+                                <h5 class="font-weight-light text-secondary">Your mentor: '.$row['mentor_firstname'].' '. $row['mentor_lastname'] .'</h5>
+                                <p class="font-weight-light text-secondary">Mentor email: '. $row['mentor_email'] .'</p>
+                                <p class="font-weight-light text-secondary">mentor phone: '. $row['mentor_phone'] .'</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    ';
+                }
+            }
+            else {
+                echo "failed";
+            }
+        }
+        
+    ?>
+
+    
 
     <!--===== MAIN JS =====-->
     <script src="../script/jquery.js"></script>

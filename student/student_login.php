@@ -54,6 +54,7 @@
                         $_SESSION['phone'] = $row['student_phone'];
                         $_SESSION['depertment'] = $row['student_depertment'];
                         $_SESSION['program'] = $row['student_program'];
+                        $_SESSION['mentor_id'] = $row['assign_mentor'];
                         header('location: student_profile.php');
                     }
                     else {

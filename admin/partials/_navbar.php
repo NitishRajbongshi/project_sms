@@ -35,11 +35,7 @@
                     <span class="nav__name">Task</span>
                 </a>
                 <a href="#" class="nav__link">
-                    <i class="bx bx-mail-send nav__icon"></i>
-                    <span class="nav__name">Query</span>
-                </a>
-                <a href="#" class="nav__link">
-                    <i class="bx bx-mail-send nav__icon"></i>
+                    <i class="bi bi-reception-3"></i>
                     <span class="nav__name">Add Result</span>
                 </a>
             </div>

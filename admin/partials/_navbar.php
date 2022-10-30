@@ -26,9 +26,9 @@
                     <i class="bi bi-server"></i>
                     <span class="nav__name">Database</span>
                 </a>
-                <a href="#" class="nav__link">
-                    <i class="bi bi-server"></i>
-                    <span class="nav__name">Relation</span>
+                <a href="mentor_mentee_database.php" class="nav__link">
+                    <i class="bi bi-search"></i>
+                    <span class="nav__name">Search</span>
                 </a>
                 <a href="task.php" class="nav__link">
                     <i class="bi bi-question-square-fill"></i>

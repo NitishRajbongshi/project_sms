@@ -58,13 +58,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <h3>
         ASSIGN MENTOR
     </h3>    
-    
     </div>
-
-    <!-- <div class="shadow-sm p-3 mb-5 bg-body rounded text-secondary">
-        This is some text within a card body.
-        <a href="#show_details_card" id="show_details">More details</a>
-    </div> -->
 
     <?php
     if(isset($_POST['assign_mentor'])) {
@@ -74,7 +68,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
         $no_of_assign_student = 0;
         $assign_success = false;
         
-        // algorithm to select mentor randomly
+        // algorithm to select mentor sequentially
         $sql = "
         SELECT * FROM `mentor` WHERE `mentor_department` = '$selected_dept'
         ";
@@ -103,12 +97,6 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
                             if($update_result) {
                                 $no_of_assign_student = $no_of_assign_student + 1;
                                 $assign_success = true;
-                                // echo '
-                                // <div class="shadow-sm p-3 mb-5 bg-body rounded text-secondary">
-                                //     Success: mentor assign successful.
-                                //     <a href="#show_details_card" class="show_details">More details</a>
-                                // </div>
-                                // ';
                                 $i = $i + 1;
                             }
                             else {

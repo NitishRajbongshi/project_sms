@@ -18,21 +18,25 @@
                     <span class="nav__logo-name">SMS</span>
                 </a>
                 <div class="nav__list">
-                    <a href="#" class="nav__link active">
+                    <a href="mentor_profile.php" class="nav__link">
                         <i class="bi bi-person-circle"></i>
                         <span class="nav__name">Profile</span>
                     </a>
                     <a href="#" class="nav__link">
-                        <i class="bx bx-stopwatch nav__icon"></i>
-                        <span class="nav__name">Meeting</span>
+                        <i class="bi bi-person-check-fill"></i>
+                        <span class="nav__name">Students</span>
+                    </a>
+                    <a href="group_meeting.php" class="nav__link">
+                        <i class="bi bi-people-fill"></i>
+                        <span class="nav__name">Group Meeting</span>
                     </a>
                     <a href="#" class="nav__link">
-                        <i class="bx bx-message-square-detail nav__icon"></i>
-                        <span class="nav__name">Notification</span>
+                        <i class="bi bi-chat-left-text-fill"></i>
+                        <span class="nav__name">Communication</span>
                     </a>
                     <a href="#" class="nav__link">
                         <i class="bx bx-list-ul nav__icon"></i>
-                        <span class="nav__name">Lists</span>
+                        <span class="nav__name">History</span>
                     </a>
                     <a href="#" class="nav__link">
                         <i class="bx bx-mail-send nav__icon"></i>

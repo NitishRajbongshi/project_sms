@@ -34,18 +34,9 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="../style/profile_sidebar.css">
-    <link rel="stylesheet" href="../style/bg_color.css">    
+    <link rel="stylesheet" href="../style/bg_color.css">
+    <link rel="stylesheet" href="style/mentor_mentee_database_design.css">
     <title>Search details</title>
-
-    <style>
-        form.search_student input {
-            border: none;
-            outline: none;
-            border-bottom: 1px solid blue;
-            margin: 2px 10px;
-            padding: 3px;
-        }
-    </style>
 </head>
 
 <body id="body-pd">
@@ -62,7 +53,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <div class="container">
         <h3 class="text-center text-primary p-2" style="font-family: 'Ubuntu', sans-serif;">Mentor and Student</h3>
     </div>
-    <div class="container my-3 p-3" style="font-family: 'Ubuntu', sans-serif;">
+    <div class="container my-3 py-3" style="font-family: 'Ubuntu', sans-serif;">
         <form action="mentor_mentee_database.php" method="POST" class="search_student">
             <label class="text-primary fs-5" for="mentor_id">Enter Mentor Id: </label>
             <input type="text" id="mentor_id" name="mentor_id" placeholder="CSE01" required>
@@ -71,18 +62,23 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     </div>
 
     <?php
-    if(isset($_POST['search'])) {
+    if (isset($_POST['search'])) {
         $mentor_id = $_POST['mentor_id'];
-    
+
         $sql = "
         SELECT * FROM `mentor` WHERE `mentor_id` = '$mentor_id';
         ";
 
         $result = mysqli_query($conn, $sql);
         $no_of_row = mysqli_num_rows($result);
-        if($no_of_row > 0) {
-            while($rows = mysqli_fetch_assoc($result)) {
-                echo "Mentor details: ". $rows['mentor_firstname'] . " ". $rows['mentor_lastname'] . "<br>";
+        if ($no_of_row > 0) {
+            while ($rows = mysqli_fetch_assoc($result)) {
+                echo '
+                <div class="mentor_box container mt-3 shadow-sm">
+                    <h3 class=" border-bottom border-danger text-danger py-2">Mentor</h3>
+                    <h5 class="text-secondary">' . $rows['mentor_id'] . ' - ' . $rows['mentor_firstname'] . ' ' . $rows['mentor_lastname'] . '</h5>
+                </div>
+                ';
             }
 
             $sql = "
@@ -90,18 +86,54 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
             ";
 
             $result = mysqli_query($conn, $sql);
-            $no_of_row = mysqli_num_rows($result); 
-            if($no_of_row > 0) { 
-                while($rows = mysqli_fetch_assoc($result)) {
-                    echo $rows['student_firstname'] . " ". $rows['student_lastname'] . "<br>";
-                } 
+            $no_of_row = mysqli_num_rows($result);
+
+            $serialno = 1;
+            if ($no_of_row > 0) {
+                echo '
+                <div class="student_box container mt-3 shadow-sm">
+                <h3 class="border-bottom border-danger text-success py-2">Students</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Rollno</th>
+                            <th scope="col">Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                ';
+                while ($rows = mysqli_fetch_assoc($result)) {
+                    echo '
+                                <tr>
+                                    <th scope="row">'.$serialno.'</th>
+                                    <td>' . $rows["student_firstname"] . ' ' . $rows["student_lastname"] . '</td>
+                                    <td>' . $rows["rollno"] . '</td>
+                                    <td>' . $rows["academic_year"] . '</td>
+                                </tr>
+                    ';
+                    $serialno += 1;
+                }
+                echo ' 
+                            </tbody>
+                        </table>
+                    </div>';
+            } else {
+                echo '
+                <div class="mentor_not_found container mt-3">
+                    <h3 class=" border-bottom border-danger text-danger py-2">Warning</h3>
+                    <p class="text-secondary">Student not found</p>
+                </div>
+                ';
             }
-            else {
-                echo "Student not found";
-            }
-        }
-        else {
-            echo "No mentor found";
+        } else {
+            echo '
+            <div class="mentor_not_found container mt-3">
+                <h3 class=" border-bottom border-danger text-danger py-2">Warning</h3>
+                <p class="text-secondary">Mentor not found</p>
+            </div>
+            ';
         }
     }
     ?>

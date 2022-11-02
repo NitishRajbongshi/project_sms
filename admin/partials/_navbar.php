@@ -26,7 +26,7 @@
                     <i class="bi bi-server"></i>
                     <span class="nav__name">Database</span>
                 </a>
-                <a href="mentor_mentee_database.php" class="nav__link">
+                <a href="search.php" class="nav__link">
                     <i class="bi bi-search"></i>
                     <span class="nav__name">Search</span>
                 </a>

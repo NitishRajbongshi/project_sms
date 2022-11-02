@@ -50,9 +50,6 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     }
     ?>
 
-    <div class="container">
-        <h3 class="text-center text-primary p-2" style="font-family: 'Ubuntu', sans-serif;">Mentor and Student</h3>
-    </div>
     <div class="container my-3 py-3" style="font-family: 'Ubuntu', sans-serif;">
         <form action="mentor_mentee_database.php" method="POST" class="search_student">
             <label class="text-primary fs-5" for="mentor_id">Enter Mentor Id: </label>

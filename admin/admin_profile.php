@@ -16,6 +16,10 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
@@ -32,8 +36,10 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <link rel="stylesheet" href="../style/bg_color.css">
     <link rel="stylesheet" href="style/button.css">
     <link rel="stylesheet" href="../style/popup_style.css">
+    <link rel="stylesheet" href="../style/profile_icon_mentor_admin.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Admin_profile</title>
+
 </head>
 
 <body id="body-pd">
@@ -102,69 +108,72 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
         </div>
     </div>
 
-    <div class="container" style="font-family: 'PT Serif', serif;
-    font-family: 'Ubuntu', sans-serif;">
-        <div class="row featurette pt-3">
-            <div class="col-md-5 order-md-1 d-flex">
-                <img class="flex-shrink-0 bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300" height="200" src="../photo/profile_student.png" alt="Student profile">
+    
+    <div class="container d-flex flex-row justify-content-start shadow-sm mt-5 py-5 flex-wrap">
+        <div class="profile_icon px-4 py-3 me-3 admin_icon">
+            <i class="fa-solid fa-user-tie fa-2x"></i>
+        </div>
+        <div class="profile_details">
+            <h5 class="py-1">
+                <?php 
+                echo $_SESSION["username"];
+                ?>
+            </h5>
+            <h6 class="text-secondary">
+                <i class="bi bi-envelope-fill me-2"></i>
+                <?php 
+                echo $_SESSION["email"];
+                ?>
+            </h6>
+        </div>
+    </div>
+
+    <div class="container py-3">
+        <div class="row g-3 my-3">
+            <div class="col-md-6 shadow-sm rounded p-3">
+                <h6 class="secondary"><i class="bi bi-shield-lock-fill me-2"></i>Admin Id</h6>
+                <h6 class="text-primary">
+                <?php 
+                echo $_SESSION["adminId"]
+                ?>
+                </h6>
             </div>
-            <div class="col-md-7 order-md-2">
-                <h4 class="text-dark text-sm-left pt-5">Hello,
-                    <?php echo $_SESSION['username'] ?>
-                </h4>
-                <p class="lead mb-1">Email:
-                    <?php echo $_SESSION['email'] ?>
-                </p>
-                <p class="lead mb-1">Mobile:
-                    <?php echo $_SESSION['phone'] ?>
-                </p>
-                <p class="lead mb-1">Admin Id:
-                    <?php echo $_SESSION['adminId'] ?>
-                </p>
-                <div class="chng_btn">
-                    <button type="button" class="btn btn-outline-success my-2 openBtn" id="change_pass_admin">Change
-                        password</button>
-                    <button type="button" class="btn btn-outline-success my-2 update_profile" id="update_prof_admin">Update
-                        profile</button>
-                </div>
+            <div class="col-md-6 shadow-sm rounded p-3">
+                <h6 class="secondary"><i class="bi bi-telephone-fill me-2"></i>Phone</h6>
+                <h6 class="text-primary">
+                <?php 
+                echo $_SESSION["phone"]
+                ?>
+                </h6>
             </div>
+        </div>
+        <div class="row g-3 my-3">
+            <div class="col-md-6 shadow-sm rounded p-3">
+                <h6 class="secondary"><i class="bi bi-envelope-fill me-2"></i>Email Id</h6>
+                <h6 class="text-primary">
+                <?php 
+                echo $_SESSION["email"]
+                ?>
+                </h6>
+            </div>
+            <div class="col-md-6 shadow-sm rounded p-3">
+                <h6 class="secondary"><i class="bi bi-geo-alt-fill me-2"></i>Location</h6>
+                <h6 class="text-primary">Tezpur University</h6>
+            </div>
+        </div>
+
+        <div class="container change_Btn">
+            <span class="text-secondary openBtn" id="change_pass_admin">
+                <i class="bi bi-key-fill me-1"></i> Change password
+            </span>
+        </div>
+        <div class="container change_Btn">
+            <span class="text-secondary update_profile" id="update_prof_admin">
+                <i class="bi bi-pen-fill me-1"></i> Update profile
+            </span>
         </div>
     </div>
     <!-- <hr class="featurette-divider"> -->
-
-
-
-    <!-- add students -->
-    <h5 class="my-4 py-1 text-bold" style="font-family: 'Ubuntu', sans-serif;">Add students</h5>
-    <div class="cont d-flex" style="font-family: 'Ubuntu', sans-serif;">
-        <div class="main_box_1 mx-1 py-2 text-center bg-primary text-light">
-            <h6>ADD</h6>
-            <p class="text-light">Add one by one</p>
-            <button id="add_student_one" class="border border-primary"><i class="bi bi-plus-lg "></i></button>
-        </div>
-        <div class="main_box_2 mx-1 py-2 text-center bg-primary text-light">
-            <h6>ADD</h6>
-            <p class="text-light">Select from a sheet</p>
-            <button class="border border-primary" id="select_student_all"><i class="bi bi-plus-lg"></i></button>
-        </div>
-    </div>
-
-    <!-- <hr class="featurette-divider"> -->
-
-    <!-- add mentor -->
-    <h5 class="my-4 py-1 text-bold" style="font-family: 'Ubuntu', sans-serif;">Add Mentors</h5>
-    <div class="cont d-flex" style="font-family: 'Ubuntu', sans-serif;">
-        <div class="main_box_1 mx-1 py-2 text-center bg-primary text-light">
-            <h6>ADD</h6>
-            <p class="text-light">Add one by one</p>
-            <button id="add_mentor_one" class="border border-primary"><i class="bi bi-plus-lg"></i></button>
-        </div>
-        <div class="main_box_2 mx-1 py-2 text-center bg-primary text-light">
-            <h6>ADD</h6>
-            <p class="text-light">Select from a sheet</p>
-            <button id="select_mentor_all" class="border border-primary"><i class="bi bi-plus-lg"></i></button>
-        </div>
-    </div>
 
     <div class="mb-5"></div>
 
@@ -180,24 +189,6 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
             // script for logout
             $("#logoutbtn").click(function() {
                 window.location.replace("admin_logout.php");
-            })
-
-            $("#add_student_one").click(function() {
-                window.location.replace("others/add_student.php");
-
-            })
-
-            $("#add_mentor_one").click(function() {
-                window.location.replace("others/add_mentor.php");
-
-            })
-
-            $("#select_student_all").click(function() {
-                window.location.replace("files/student.php");
-            })
-
-            $("#select_mentor_all").click(function() {
-                window.location.replace("files/mentor.php");
             })
         })
     </script>

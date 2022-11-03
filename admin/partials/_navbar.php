@@ -22,6 +22,10 @@
                     <i class="bi bi-person-circle"></i>
                     <span class="nav__name">Profile</span>
                 </a>
+                <a href="add.php" class="nav__link">
+                    <i class="bi bi-person-plus-fill"></i>
+                    <span class="nav__name">Add Data</span>
+                </a>
                 <a href="database.php" class="nav__link">
                     <i class="bi bi-server"></i>
                     <span class="nav__name">Database</span>

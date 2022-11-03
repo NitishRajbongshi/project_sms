@@ -10,18 +10,19 @@ p {
 }
 
 /* Popup open button */
-.openBtn, .update_profile {
+/* .openBtn, .update_profile {
     color: #FFF;
     background: #259f57;
     padding: 6px;
     text-decoration: none;
     border: 1px solid #269faf;
     border-radius: 3px;
-}
+} */
 
-.openBtn:hover, .update_profile:hover {
+
+/* .openBtn:hover, .update_profile:hover {
     background: #35c7db;
-}
+} */
 
 .cp, .cprof {
     position: fixed;

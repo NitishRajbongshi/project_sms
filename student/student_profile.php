@@ -16,6 +16,10 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
@@ -116,26 +120,27 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
     </div>
 
 
-    <div class="container" style="font-family: 'PT Serif', serif;
+    <div class="container shadow-sm" style="font-family: 'PT Serif', serif;
     font-family: 'Ubuntu', sans-serif;">
         <div class="row featurette pt-3">
             <div class="col-md-5 order-md-1 d-flex">
                 <img class="flex-shrink-0 bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300" height="200" src="../photo/profile_student.png" alt="Student profile">
             </div>
             <div class="col-md-7 order-md-2 pt-4">
-                <h4 class="text-dark text-sm-left pt-4">Hello,
+                <h4 class="text-dark text-sm-left pt-4">
                     <?php echo $_SESSION['username']; ?>
                 </h4>
-                <p class="lead mb-1">Email:
+                <p class="lead mb-1">
+                    <i class="bi bi-envelope-fill me-2"></i>
                     <?php echo $_SESSION['email']; ?>
                 </p>
-                <p class="lead mb-1">Mobile:
+                <p class="lead mb-1"><i class="bi bi-telephone-fill me-2"></i>
                     <?php echo $_SESSION['phone']; ?>
                 </p>
-                <p class="lead mb-1">Department:
+                <p class="lead mb-1"><i class="bi bi-geo-alt-fill me-2"></i>
                     <?php echo $_SESSION['depertment']; ?>
                 </p>
-                <p class="lead mb-1">Program: 
+                <p class="lead mb-1"><i class="bi bi-book-half me-2"></i> 
                     <?php echo $_SESSION['program']; ?>
                 </p>
                 <div class="chng_btn">
@@ -145,8 +150,72 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
             </div>
         </div>
     </div>
-    <!-- <hr class="featurette-divider"> -->
-    <?php
+    
+    <div class="container my-2 shadow-sm pb-1">
+        <div class="mentor_mgs py-3">
+            <h4 class="text-secondary border border-2 border-primary border-start-0 border-top-0 border-end-0">Mentor</h4>
+        </div>
+        <?php
+            if($_SESSION['mentor_id'] == 0) {
+                echo '
+                <div class="no_mentor">
+                    <p class="text-danger pb-2">Oops!! There is currently no mentor assigned to you.</p>
+                </div>
+                ';
+            }
+
+            else {
+                $mentor_id = $_SESSION['mentor_id'];
+                $sql = "
+                SELECT * FROM `mentor` WHERE `mentor_id` = '$mentor_id'
+                ";
+                $result = mysqli_query($conn, $sql);
+                if($result) {
+                    while($row = mysqli_fetch_assoc($result)) { 
+                        echo '
+                        <div class="row g-3 my-3">
+                            <div class="col-md-6 shadow-sm rounded p-3">
+                                <h6 class="secondary"><i class="bi bi-shield-lock-fill me-2"></i>Mentor name</h6>
+                                <h6 class="text-primary">
+                                '.$row['mentor_firstname'].' '. $row['mentor_lastname'] .'
+                                </h6>
+                            </div>
+                            <div class="col-md-6 shadow-sm rounded p-3">
+                                <h6 class="secondary"><i class="bi bi-telephone-fill me-2"></i>Phone</h6>
+                                <h6 class="text-primary">
+                                '. $row['mentor_phone'] .'
+                                </h6>
+                                </div>
+                                </div>
+                                <div class="row g-3 my-3">
+                                <div class="col-md-6 shadow-sm rounded p-3">
+                                <h6 class="secondary"><i class="bi bi-envelope-fill me-2"></i>Email Id</h6>
+                                <h6 class="text-primary">
+                                '. $row['mentor_email'] .'
+                                </h6>
+                            </div>
+                            <div class="col-md-6 shadow-sm rounded p-3">
+                                <h6 class="secondary"><i class="bi bi-geo-alt-fill me-2"></i>Department</h6>
+                                <h6 class="text-primary">
+                                '. $row['mentor_department'] .'
+                                </h6>
+                                </h6>
+                            </div>
+                        </div>
+                        ';
+                    }
+                }
+                else {
+                    echo "Failed to fetch mentor records";
+                }
+
+
+            }
+        ?>
+
+    </div>
+
+    <!-- <?php
 
         if($_SESSION['mentor_id'] == 0) {
             echo '
@@ -191,7 +260,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
             }
         }
         
-    ?>
+    ?> -->
 
     
 

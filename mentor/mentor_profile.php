@@ -15,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
     <!-- ===== BOX ICONS ===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
@@ -77,35 +80,73 @@
         </div>
     </div>
 
-    <div class="container" style="font-family: 'PT Serif', serif;
-    font-family: 'Ubuntu', sans-serif;">
-        <div class="row featurette pt-3">
-            <div class="col-md-5 order-md-1 d-flex">
-                <img class="flex-shrink-0 bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="300" height="200" src="../photo/profile_student.png" alt="Student profile">
+    <div class="container d-flex flex-row justify-content-start shadow-sm mt-5 py-5 flex-wrap">
+        <div class="profile_icon px-4 py-3 me-3 admin_icon">
+            <i class="fa-solid fa-user-tie fa-2x"></i>
+        </div>
+        <div class="profile_details">
+            <h5 class="py-1">
+                <?php 
+                echo $_SESSION["username"];
+                ?>
+            </h5>
+            <h6 class="text-secondary">
+                <i class="bi bi-envelope-fill me-2"></i>
+                <?php 
+                echo $_SESSION["email"];
+                ?>
+            </h6>
+        </div>
+    </div>
+
+    <div class="container py-3">
+        <div class="row g-3 my-3">
+            <div class="col-md-6 shadow-sm rounded p-3">
+                <h6 class="secondary"><i class="bi bi-shield-lock-fill me-2"></i>Mentor Id</h6>
+                <h6 class="text-primary">
+                <?php 
+                echo $_SESSION["mentorId"]
+                ?>
+                </h6>
             </div>
-            <div class="col-md-7 order-md-2 pt-3">
-                <h4 class="text-dark text-sm-left pt-4">Hello, 
-                    <?php echo $_SESSION['username']; ?>
-                </h4>
-                <p class="lead mb-1">Email: 
-                    <?php echo $_SESSION['email']; ?>
-                </p>
-                <p class="lead mb-1">Mobile: 
-                    <?php echo $_SESSION['phone']; ?>
-                </p>
-                <p class="lead mb-1">Mentor ID: 
-                    <?php echo $_SESSION['mentorId']; ?>
-                </p>
-                <p class="lead mb-1">Depertment: 
-                    <?php echo $_SESSION['department']; ?>
-                </p>
-                <div class="chng_btn">
-                    <button type="button" class="btn btn-outline-success my-2 openBtn" id="change_pass_admin">Change
-                        password</button>
-                    <button type="button" class="btn btn-outline-success my-2 update_profile" id="update_prof_admin">Update
-                        profile</button>
-                </div>
+            <div class="col-md-6 shadow-sm rounded p-3">
+                <h6 class="secondary"><i class="bi bi-telephone-fill me-2"></i>Phone</h6>
+                <h6 class="text-primary">
+                <?php 
+                echo $_SESSION["phone"]
+                ?>
+                </h6>
             </div>
+        </div>
+        <div class="row g-3 my-3">
+            <div class="col-md-6 shadow-sm rounded p-3">
+                <h6 class="secondary"><i class="bi bi-envelope-fill me-2"></i>Email Id</h6>
+                <h6 class="text-primary">
+                <?php 
+                echo $_SESSION["email"]
+                ?>
+                </h6>
+            </div>
+            <div class="col-md-6 shadow-sm rounded p-3">
+                <h6 class="secondary"><i class="bi bi-geo-alt-fill me-2"></i>Department</h6>
+                <h6 class="text-primary">
+                <?php 
+                echo $_SESSION["department"]
+                ?>
+                </h6>
+                </h6>
+            </div>
+        </div>
+
+        <div class="container change_Btn">
+            <span class="text-secondary openBtn" id="change_pass_admin">
+                <i class="bi bi-key-fill me-1"></i> Change password
+            </span>
+        </div>
+        <div class="container change_Btn">
+            <span class="text-secondary update_profile" id="update_prof_admin">
+                <i class="bi bi-pen-fill me-1"></i> Update profile
+            </span>
         </div>
     </div>
 

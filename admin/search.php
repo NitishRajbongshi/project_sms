@@ -64,13 +64,13 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <div class="container d-flex flex-row justify-content-center flex-wrap">
     <div
       class="my_card m-3 py-2 px-5 bg-light d-flex flex-column justify-content-center shadow-sm border border-4 border-primary border-end-0 border-start-0 border-bottom-0">
-      <i class="fa-solid fa-magnifying-glass fa-6x fa-beat-fade my-3 p-2 ms-3"></i>
+      <i class="fa-solid fa-magnifying-glass fa-2x fa-beat-fade my-2 p-2 ms-5"></i>
       <h6 class="py-2">Search by department</h6>
       <button id="srch_dept" class="btn btn-sm btn-outline-primary my-2">Click</button>
     </div>
     <div
       class="my_card m-3 py-2 px-5 bg-light d-flex flex-column justify-content-center shadow-sm border border-4 border-danger border-end-0 border-start-0 border-bottom-0">
-      <i class="fa-solid fa-magnifying-glass fa-6x fa-beat-fade my-3 p-2 ms-3"></i>
+      <i class="fa-solid fa-magnifying-glass fa-2x fa-beat-fade my-2 p-2 ms-5"></i>
       <h6 class="py-2">Search by Mentor's ID</h6>
       <button id="srch_id" class="btn btn-sm btn-outline-danger my-2">Click</button>
     </div>

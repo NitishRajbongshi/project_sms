@@ -109,16 +109,16 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     </div>
 
     
-    <div class="container d-flex flex-row justify-content-start shadow-sm mt-5 py-5 flex-wrap">
+    <div class="container d-flex flex-row justify-content-start mt-5 py-5 flex-wrap">
         <div class="profile_icon px-4 py-3 me-3 admin_icon">
             <i class="fa-solid fa-user-tie fa-2x"></i>
         </div>
-        <div class="profile_details">
-            <h5 class="py-1">
+        <div class="profile_details ms-3">
+            <h4 class="py-1">
                 <?php 
                 echo $_SESSION["username"];
                 ?>
-            </h5>
+            </h4>
             <h6 class="text-secondary">
                 <i class="bi bi-envelope-fill me-2"></i>
                 <?php 

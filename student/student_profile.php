@@ -174,13 +174,13 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
                     while($row = mysqli_fetch_assoc($result)) { 
                         echo '
                         <div class="row g-3 my-3">
-                            <div class="col-md-6 shadow-sm rounded p-3">
+                            <div class="col-md-6 rounded p-3">
                                 <h6 class="secondary"><i class="bi bi-shield-lock-fill me-2"></i>Mentor name</h6>
                                 <h6 class="text-primary">
                                 '.$row['mentor_firstname'].' '. $row['mentor_lastname'] .'
                                 </h6>
                             </div>
-                            <div class="col-md-6 shadow-sm rounded p-3">
+                            <div class="col-md-6 rounded p-3">
                                 <h6 class="secondary"><i class="bi bi-telephone-fill me-2"></i>Phone</h6>
                                 <h6 class="text-primary">
                                 '. $row['mentor_phone'] .'
@@ -188,13 +188,13 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
                                 </div>
                                 </div>
                                 <div class="row g-3 my-3">
-                                <div class="col-md-6 shadow-sm rounded p-3">
+                                <div class="col-md-6 rounded p-3">
                                 <h6 class="secondary"><i class="bi bi-envelope-fill me-2"></i>Email Id</h6>
                                 <h6 class="text-primary">
                                 '. $row['mentor_email'] .'
                                 </h6>
                             </div>
-                            <div class="col-md-6 shadow-sm rounded p-3">
+                            <div class="col-md-6 rounded p-3">
                                 <h6 class="secondary"><i class="bi bi-geo-alt-fill me-2"></i>Department</h6>
                                 <h6 class="text-primary">
                                 '. $row['mentor_department'] .'

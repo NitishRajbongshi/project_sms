@@ -80,7 +80,7 @@
         </div>
     </div>
 
-    <div class="container d-flex flex-row justify-content-start shadow-sm mt-5 py-5 flex-wrap">
+    <div class="container d-flex flex-row justify-content-start mt-5 py-5 flex-wrap">
         <div class="profile_icon px-4 py-3 me-3 admin_icon">
             <i class="fa-solid fa-user-tie fa-2x"></i>
         </div>

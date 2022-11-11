@@ -50,6 +50,9 @@
             $meeting_description = $_POST['description'];
             $mentor_id = $_SESSION['mentorId'];
 
+            $length = 8;    
+            $group_meeting_code = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'),1,$length);
+
             $sql = "
                     SELECT * FROM `student` WHERE `assign_mentor` = '$mentor_id'
             ";
@@ -59,10 +62,11 @@
             if($no_of_rows > 0) {
                 $a = 0;
                 $b = 0;
+                $mark = 0;
                 while($rows = mysqli_fetch_assoc($result)) {
                     $rollNo = $rows['rollno'];
                     $sqll = "
-                    INSERT INTO `group_meeting`(`mentor_id`, `rollno`, `title`, `description`, `student_remarks`, `mentor_remarks`) VALUES ('$mentor_id','$rollNo','$meeting_title','$meeting_description','$a','$b')
+                    INSERT INTO `group_meeting`(`meeting_code`,`mentor_id`, `rollno`, `title`, `description`, `student_remarks`, `mentor_remarks`, `mark_read`) VALUES ('$group_meeting_code','$mentor_id','$rollNo','$meeting_title','$meeting_description','$a','$b', '$mark')
                     ";
                     $results = mysqli_query($conn, $sqll);
                     if($results) {

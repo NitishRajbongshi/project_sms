@@ -11,7 +11,11 @@
                 </span></strong></span>
             </div>
             <div class="meeting_timing">
-                <span class=""><i class="fa-solid fa-clock fa-beat"></i><strong> 12.45</strong></span>
+                <span class=""><i class="fa-solid fa-clock fa-beat"></i><strong>
+                    <?php
+                        include 'script/time_gropu_meeting.php';
+                    ?>
+                </strong></span>
             </div>
         </div>
 
@@ -54,7 +58,11 @@
                 </span></strong></span>
             </div>
             <div class="date_part">
-                <span class=""><i class="fa-solid fa-calendar-days"></i><strong><span> 30-02-2023</span></strong></span>
+                <span class=""><i class="fa-solid fa-calendar-days"></i><strong><span>
+                    <?php
+                        include 'script/date_group_meeting.php';
+                    ?>
+                </span></strong></span>
             </div>
         </div>
 

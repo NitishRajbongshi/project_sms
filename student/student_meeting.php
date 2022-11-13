@@ -16,6 +16,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -24,6 +25,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.1/font/bootstrap-icons.css">
 
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,7 +52,10 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
     }
 
     ?>
-
+    <div>
+        <input type="hidden" id="text1">
+        <input type="hidden" id="text2" value= <?php echo $_SESSION['rollno'];?>>
+    </div>
     <div class="container">
         <h4 class="text-center text-secondary py-3">MEETING</h4>
     </div>
@@ -81,15 +86,40 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
             // script for logout
             $("#logoutbtn").click(function() {
                 window.location.replace("student_logout.php");
-            })
+            });
 
             // mark as read
             $("#mark_read").hover(function() {
                 $(this).css({
                     'cursor':'pointer'
                 });
-            })
-        })
+            });
+
+            $('.update').click(function() {
+                let update_id = $(this).data('id');
+                let myid = "#"+update_id;
+                $('#text1').val(update_id);
+                let val1 = $('#text1').val();
+                let val2 = $('#text2').val();
+                $.ajax({
+                    type: 'POST',
+                    url: 'meeting/script/mark_as_read.php',
+                    data: { text1: val1, text2: val2 },
+                    success:function(response) {
+                        if(response === 'success') {
+                            alert('success');
+                            document.getElementById(update_id).style.display = 'none';
+                        }
+                        else if(response === 'failed'){
+                            alert('failed');
+                        }
+                        else {
+                            alert("error occured!");
+                        }
+                    }                    
+                });
+            });
+        });
     </script>
 </body>
 

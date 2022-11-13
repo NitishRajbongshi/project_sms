@@ -1,8 +1,15 @@
 <div class="meeting_card container shadow-sm p-4 mb-2" style="background-image: linear-gradient(to bottom right, white, #fbfdff);">
         <div class="markasread_part d-flex justify-content-end">
-            <span id="mark_read" style="color: blue;"><i class="fa-solid fa-check me-1"></i><strong>Mark as read</strong></span>
+            <?php
+            if($rows['mark_read'] == 0) { ?>
+            <a id="<?php echo $rows['meeting_code']; ?>" class="update" href="#" data-role="update" data-id="<?php echo $rows['meeting_code'] ?>">Mark as read</a>
+            <?php } 
+            else { ?>
+            <i class="bi bi-check-lg"></i>
+            <?php }
+            ?>
         </div>
-        <div class="first_section d-flex justify-content-between py-1">
+        <div class="first_section d-flex justify-content-between flex-wrap py-1">
             <div class="meeting_id">
                 <span class=""><i class="fa-solid fa-handshake"></i><strong> Meeting Id: <span class="text-primary fs-5">
                 <?php
@@ -11,7 +18,7 @@
                 </span></strong></span>
             </div>
             <div class="meeting_timing">
-                <span class=""><i class="fa-solid fa-clock fa-beat"></i><strong>
+                <span class=""><i class="fa-solid fa-clock"></i><strong>
                     <?php
                         include 'script/time_gropu_meeting.php';
                     ?>

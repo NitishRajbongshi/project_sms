@@ -1,8 +1,9 @@
 <div class="meeting_card container shadow-sm p-4 mb-2" style="background-image: linear-gradient(to bottom right, white, #fbfdff);">
+        <!-- <h4>New meeting</h4> -->
         <div class="markasread_part d-flex justify-content-end">
             <?php
             if($rows['mark_read'] == 0) { ?>
-            <a id="<?php echo $rows['meeting_code']; ?>" class="update" href="#" data-role="update" data-id="<?php echo $rows['meeting_code'] ?>">Mark as read</a>
+            <a id="<?php echo $rows['meeting_code']; ?>" class="update" href="#" data-role="update" data-id="<?php echo $rows['meeting_code'] ?>"><span class="text-light bg-danger px-1">New</span> Mark as read</a>
             <?php } 
             else { ?>
             <i class="bi bi-check-lg"></i>

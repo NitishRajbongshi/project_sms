@@ -63,7 +63,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
     <?php
         $rollNo = $_SESSION['rollno'];
         $sql = "
-        SELECT * FROM `group_meeting` WHERE `rollno` = '$rollNo';
+        SELECT * FROM `group_meeting` WHERE `rollno` = '$rollNo' ORDER BY `meeting_id` DESC;;
         ";
         $result = mysqli_query($conn, $sql);
         $no_of_rows = mysqli_num_rows($result);
@@ -73,7 +73,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
             }
         }
         else {
-            echo "No meeting";
+            echo "<div class='container py-4'><p>Currently, you have no new meetings.</p></div>";
         }
 
     ?>
@@ -95,9 +95,10 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
                 });
             });
 
+            // ajax for mark as read
             $('.update').click(function() {
                 let update_id = $(this).data('id');
-                let myid = "#"+update_id;
+                // let myid = "#"+update_id;
                 $('#text1').val(update_id);
                 let val1 = $('#text1').val();
                 let val2 = $('#text2').val();

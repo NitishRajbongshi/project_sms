@@ -21,7 +21,7 @@
             <div class="meeting_timing">
                 <span class=""><i class="fa-solid fa-clock"></i><strong>
                     <?php
-                        include 'script/time_gropu_meeting.php';
+                        include 'script/time_group_meeting.php';
                     ?>
                 </strong></span>
             </div>

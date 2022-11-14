@@ -26,9 +26,9 @@
                         <i class="bi bi-people-fill"></i>
                         <span class="nav__name">Meeting</span>
                     </a>
-                    <a href="#" class="nav__link">
+                    <a href="student_notice.php" class="nav__link">
                         <i class="bx bx-message-square-detail nav__icon"></i>
-                        <span class="nav__name">Notification</span>
+                        <span class="nav__name">Notice</span>
                     </a>
                     <a href="#" class="nav__link">
                         <i class="bx bx-list-ul nav__icon"></i>

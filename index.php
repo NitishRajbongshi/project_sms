@@ -34,7 +34,7 @@
     <!-- main section start -->
     <div class="main_title">
         <div class="coll-1">
-            <img class="banner" src="photo/home_image.png" alt="home image" height="auto" width="100%">
+            <img class="banner" src="photo/education-png-6.png" alt="home image" height="auto" width="100%">
         </div>
         <div class="coll-2">
             <div class="text-center my-5 py-4">
@@ -49,6 +49,7 @@
                     </div> -->
                 </div>
             </div>
+            
         </div>
     </div>
 
@@ -57,7 +58,6 @@
     <!-- footer start here -->
     <footer>
         <p>© Copyright 2022. All rights reserved.</p>
-        <p>Developed By: Nitish Rajbongshi & Manjit Barman || 2021-2023 || Tezpur University</p>
     </footer>
     <!-- footer end here -->
 

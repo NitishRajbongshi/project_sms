@@ -1,7 +1,7 @@
 <?php
 echo'<nav class="navbar .bg-transparent fixed-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php"><span id="title">S.M.S.</span></a>
+        <a class="navbar-brand" href="index.php"><span><img src="photo/tezpur_logo.png" alt="logo" height="35px" width="35px"></span><span id="title">Tezpur University</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar">
             <i class="bi bi-list-ul"></i>
@@ -18,7 +18,7 @@ echo'<nav class="navbar .bg-transparent fixed-top">
                         <a class="nav-link active" aria-current="page" href="index.php"><i class="bi bi-house"></i>Home</a>
                     </li>
                     <li class="menu_items nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-file-earmark"></i>About</a>
+                        <a class="nav-link" href="about.html"><i class="bi bi-file-earmark"></i>About</a>
                     </li>
                     <li class="menu_items nav-item">
                         <a class="nav-link" href="#"><i class="bi bi-download"></i>Download</a>

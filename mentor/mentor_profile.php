@@ -49,38 +49,6 @@
         }
     ?>
 
-    <!-- change password -->
-    <div class="cp">
-        <div class="popup-content">
-            <h2>Change password</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                id
-                laborum.</p>
-            <a class="closeBtn" href="javascript:void(0)">x</a>
-        </div>
-    </div>
-
-    <!-- change profile -->
-    <div class="cprof">
-        <div class="popup-content">
-            <h2>Update Profile</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                id
-                laborum.</p>
-            <a class="closeBtn" href="javascript:void(0)">x</a>
-        </div>
-    </div>
-
     <div class="container d-flex flex-row justify-content-start mt-5 py-5 flex-wrap">
         <div class="profile_icon px-4 py-3 me-3 admin_icon">
             <i class="fa-solid fa-user-tie fa-4x"></i>
@@ -139,14 +107,14 @@
             </div>
         </div>
 
-        <div class="container change_Btn">
-            <p class="text-danger" style="font-size: 0.7rem;">Please, update your password if you login for the first time</p>
+        <p class="text-danger" style="font-size: 0.7rem;">Please, update your password if you login for the first time</p>
+        <div class="change_Btn">
             <span class="text-secondary openBtn" id="change_pass_mentor">
                 <i class="bi bi-key-fill me-1"></i> Change password
             </span>
         </div>
-        <div class="container change_Btn">
-            <span class="text-secondary update_profile" id="update_prof_admin">
+        <div class="change_Btn">
+            <span class="text-secondary update_profile" id="update_prof_mentor">
                 <i class="bi bi-pen-fill me-1"></i> Update profile
             </span>
         </div>
@@ -155,8 +123,6 @@
     <!--===== MAIN JS =====-->
     <script src="../script/jquery.js"></script>
     <script src="../script/profile_sidebar.js"></script>
-    <!-- <script src="../script/change_password.js"></script> -->
-    <!-- <script src="../script/update_profile.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
@@ -166,6 +132,9 @@
             })
             $("#change_pass_mentor").click(()=>{
                 window.location.replace('others/change_password.php');
+            })
+            $("#update_prof_mentor").click(()=>{
+                window.location.replace('others/update_profile.php');
             })
         })
     </script>

@@ -57,6 +57,7 @@
     <!-- footer start here -->
     <footer>
         <p>© Copyright 2022. All rights reserved.</p>
+        <p>Developed By: Nitish Rajbongshi & Manjit Barman || 2021-2023 || Tezpur University</p>
     </footer>
     <!-- footer end here -->
 

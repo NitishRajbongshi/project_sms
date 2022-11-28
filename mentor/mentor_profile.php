@@ -140,7 +140,8 @@
         </div>
 
         <div class="container change_Btn">
-            <span class="text-secondary openBtn" id="change_pass_admin">
+            <p class="text-danger" style="font-size: 0.7rem;">Please, update your password if you login for the first time</p>
+            <span class="text-secondary openBtn" id="change_pass_mentor">
                 <i class="bi bi-key-fill me-1"></i> Change password
             </span>
         </div>
@@ -154,14 +155,17 @@
     <!--===== MAIN JS =====-->
     <script src="../script/jquery.js"></script>
     <script src="../script/profile_sidebar.js"></script>
-    <script src="../script/change_password.js"></script>
-    <script src="../script/update_profile.js"></script>
+    <!-- <script src="../script/change_password.js"></script> -->
+    <!-- <script src="../script/update_profile.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
             // script for logout
             $("#logoutbtn").click(function () {
                 window.location.replace("mentor_logout.php");
+            })
+            $("#change_pass_mentor").click(()=>{
+                window.location.replace('others/change_password.php');
             })
         })
     </script>

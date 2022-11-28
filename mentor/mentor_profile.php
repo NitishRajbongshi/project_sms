@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="../style/bg_color.css">
     <link rel="stylesheet" href="../style/popup_style.css">
     <link rel="stylesheet" href="../admin/style/button.css">
+    <link rel="stylesheet" href="../style/profile_icon_mentor_admin.css">
 
     <title>mentor profile</title>
 </head>
@@ -82,14 +83,14 @@
 
     <div class="container d-flex flex-row justify-content-start mt-5 py-5 flex-wrap">
         <div class="profile_icon px-4 py-3 me-3 admin_icon">
-            <i class="fa-solid fa-user-tie fa-2x"></i>
+            <i class="fa-solid fa-user-tie fa-4x"></i>
         </div>
         <div class="profile_details">
-            <h5 class="py-1">
+            <h1 class="py-1">
                 <?php 
                 echo $_SESSION["username"];
                 ?>
-            </h5>
+            </h1>
             <h6 class="text-secondary">
                 <i class="bi bi-envelope-fill me-2"></i>
                 <?php 

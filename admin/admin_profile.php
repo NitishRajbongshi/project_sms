@@ -35,7 +35,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <link rel="stylesheet" href="../style/profile_sidebar.css">
     <link rel="stylesheet" href="../style/bg_color.css">
     <link rel="stylesheet" href="style/button.css">
-    <link rel="stylesheet" href="../style/popup_style.css">
+    <!-- <link rel="stylesheet" href="../style/popup_style.css"> -->
     <link rel="stylesheet" href="../style/profile_icon_mentor_admin.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Admin_profile</title>
@@ -51,14 +51,18 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
         header("location: admin_logout.php");
         exit;
     }
+
+    if(isset($_POST['snoEdit'])) {
+        echo "done";
+    } 
     ?>
 
     <!-- change password -->
-    <div class="cp">
+    <!-- <div class="cp">
         <div class="popup-content">
             <h2>Change password</h2>
             <form action="/php_tutorial/EVS/profile.php" method="post" autocomplete="off">
-                <input type="hidden" name="snoEdit" id="snoEdit">
+                <input type="text" name="snoEdit" id="snoEdit">
 
                 <div class="mb-3">
                     <label for="curp" class="form-label">Current password</label>
@@ -72,14 +76,14 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
                     <label for="newcp" class="form-label">Confirm password</label>
                     <input type="password" class="form-control" id="newcp" aria-describedby="emailHelp" name="newcp" required maxlength="30">
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;" name="conpass">CONFIRM</button>
+                <button type="submit" class="change_pass btn btn-primary" style="width: 100%;" name="conpass">CONFIRM</button>
             </form>
             <a class="closeBtn" href="javascript:void(0)">x</a>
         </div>
-    </div>
+    </div> -->
 
     <!-- change profile -->
-    <div class="cprof">
+    <!-- <div class="cprof">
         <div class="popup-content">
             <h2>Update Profile</h2>
             <form action="/php_tutorial/EVS/admin/admin_profile.php" method="post" autocomplete="off">
@@ -106,19 +110,19 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
             </form>
             <a class="closeBtn" href="javascript:void(0)">x</a>
         </div>
-    </div>
+    </div> -->
 
     
     <div class="container d-flex flex-row justify-content-start mt-5 py-5 flex-wrap">
         <div class="profile_icon px-4 py-3 me-3 admin_icon">
-            <i class="fa-solid fa-user-tie fa-2x"></i>
+            <i class="fa-solid fa-user-tie fa-4x"></i>
         </div>
         <div class="profile_details ms-3">
-            <h4 class="py-1">
+            <h1 class="py-1">
                 <?php 
                 echo $_SESSION["username"];
                 ?>
-            </h4>
+            </h1>
             <h6 class="text-secondary">
                 <i class="bi bi-envelope-fill me-2"></i>
                 <?php 
@@ -189,6 +193,9 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
             // script for logout
             $("#logoutbtn").click(function() {
                 window.location.replace("admin_logout.php");
+            })
+            $('#change_pass_admin').click(function() {
+                window.location.replace("others/change_password.php");
             })
         })
     </script>

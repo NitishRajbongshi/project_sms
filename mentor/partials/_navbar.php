@@ -22,7 +22,7 @@
                         <i class="bi bi-person-circle"></i>
                         <span class="nav__name">Profile</span>
                     </a>
-                    <a href="#" class="nav__link">
+                    <a href="student_list.php" class="nav__link">
                         <i class="bi bi-person-check-fill"></i>
                         <span class="nav__name">Students</span>
                     </a>

@@ -16,7 +16,6 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
@@ -33,6 +32,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="../style/profile_sidebar.css">
     <link rel="stylesheet" href="../style/bg_color.css">
+    <!-- <link rel="stylesheet" href="style/notice_bg_color.css"> -->
 
     <title>Notice</title>
 </head>
@@ -49,7 +49,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
     }
     ?>
     <div class="container">
-        <h4 class="text-secondary py-3" >Notice for you</h4>
+        <h4 class="text-secondary py-3 text-center" >Notice for you</h4>
     </div>
     <?php
         include "meeting/notice_template.php";

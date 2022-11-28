@@ -11,7 +11,7 @@ div.student_box,
 div.mentor_not_found,
 div.student_not_found {
     border-left: 4px solid green;
-    background-color: #d3f7d485;
+    background-color: #edffee17;
     padding: 4px;
     border-radius: 0 6px 6px 0;
 }

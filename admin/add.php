@@ -34,7 +34,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <link rel="stylesheet" href="../style/popup_style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Add data</title>
-    <style>
+    <!-- <style>
         div.box_individual {
             background-color: #8EC5FC;
             background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
@@ -43,7 +43,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
             background-color: #8EC5FC;
             background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
         }
-    </style>
+    </style> -->
 </head>
 
 <body id="body-pd">
@@ -57,19 +57,19 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     }
     ?>
 
-    <div class="container border border-2 border-primary border-start-0 border-top-0 border-end-0 pt-4">
+    <div class="container pt-4">
         <h4 class="text-primary text-center">Add data into the database</h4>
     </div>
 
     <!-- add students -->
     <h5 class="my-4 p-1 text-bold" style="font-family: 'Ubuntu', sans-serif;">Add students</h5>
     <div class="cont d-flex" style="font-family: 'Ubuntu', sans-serif;">
-        <div class="box_individual main_box_1 mx-1 py-2 text-center text-light text-primary border border-4 border-danger border-bottom-0 border-top-0 border-end-0 rounded-end">
+        <div class="box_individual main_box_1 bg-light shadow-sm mx-1 py-2 text-center text-light text-primary border border-4 border-danger border-bottom-0 border-top-0 border-end-0 rounded-end">
             <h6 class="text-dark">ADD</h6>
             <p class="text-dark">Add one by one</p>
             <button id="add_student_one" class="border border-0"><i class="bi bi-plus-lg "></i></button>
         </div>
-        <div class="box_group main_box_2 mx-1 py-2 text-center text-light text-primary border border-4 border-success border-bottom-0 border-top-0 border-end-0 rounded-end">
+        <div class="box_group main_box_2 mx-1 bg-light shadow-sm py-2 text-center text-light text-primary border border-4 border-success border-bottom-0 border-top-0 border-end-0 rounded-end">
             <h6 class="text-dark">ADD</h6>
             <p class="text-dark">Select from a sheet</p>
             <button class="border border-0" id="select_student_all"><i class="bi bi-plus-lg"></i></button>
@@ -81,12 +81,12 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <!-- add mentor -->
     <h5 class="my-4 p-1 text-bold" style="font-family: 'Ubuntu', sans-serif;">Add Mentors</h5>
     <div class="cont d-flex" style="font-family: 'Ubuntu', sans-serif;">
-        <div class="box_individual main_box_1 mx-1 py-2 text-center text-light text-primary border border-4 border-danger border-bottom-0 border-top-0 border-end-0 rounded-end">
+        <div class="box_individual main_box_1 bg-light shadow-sm mx-1 py-2 text-center text-light text-primary border border-4 border-danger border-bottom-0 border-top-0 border-end-0 rounded-end">
             <h6 class="text-dark">ADD</h6>
             <p class="text-dark">Add one by one</p>
             <button id="add_mentor_one" class="border border-0"><i class="bi bi-plus-lg"></i></button>
         </div>
-        <div class="box_group main_box_2 mx-1 py-2 text-center text-light text-primary border border-4 border-success border-bottom-0 border-top-0 border-end-0 rounded-end">
+        <div class="box_group main_box_2 mx-1 bg-light shadow-sm py-2 text-center text-light text-primary border border-4 border-success border-bottom-0 border-top-0 border-end-0 rounded-end">
             <h6 class="text-dark">ADD</h6>
             <p class="text-dark">Select from a sheet</p>
             <button id="select_mentor_all" class="border border-0"><i class="bi bi-plus-lg"></i></button>

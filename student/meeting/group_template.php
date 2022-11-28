@@ -74,7 +74,7 @@
             </div>
         </div>
 
-        <div class="remarks_box my-2">
+        <!-- <div class="remarks_box my-2">
             <h4>Remarks</h4>
             <form action="#" method="POST">
                 <div class="remark_part">
@@ -87,5 +87,5 @@
                     <button class="btn btn-sm btn-outline-primary px-4 my-2"><i class="fa-solid fa-paper-plane me-2"></i>Send</button>
                 </div>
             </form>
-        </div>
+        </div> -->
     </div>

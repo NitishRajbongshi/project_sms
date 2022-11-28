@@ -144,7 +144,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
                     <?php echo $_SESSION['program']; ?>
                 </p>
                 <div class="chng_btn">
-                    <button type="button" class="btn btn-outline-success my-2 openBtn" id="change_pass_admin">Change
+                    <button type="button" class="btn btn-outline-primary btn-sm rounded-0 my-2 openBtn" id="change_pass_admin">Change
                         password</button>
                 </div>
             </div>
@@ -152,8 +152,8 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
     </div>
     
     <div class="container my-2 shadow-sm pb-1">
-        <div class="mentor_mgs py-3">
-            <h4 class="text-secondary border border-2 border-primary border-start-0 border-top-0 border-end-0">Mentor</h4>
+        <div class="mentor_mgs ps-2">
+            <h4 class="text-secondary mt-3">Mentor details</h4>
         </div>
         <?php
             if($_SESSION['mentor_id'] == 0) {

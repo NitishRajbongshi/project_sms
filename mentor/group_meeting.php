@@ -87,18 +87,13 @@
         <h3 class="text-center text-primary mt-2">Group Meeting</h3>
         <p class="text-center text-secondary">Create a new group meeting to all the student associated with you.</p>
     </div>
-
+    <div class="select_batch">
+        
+    </div>
     <div class="container shadow-sm py-3 my-2">
-        <div class="input-group mb-3">
-            <span class="input-group-text text-danger">From: </span>
-            <div class="form-floating">
-                <input type="text" class="form-control py-0 mb-1" id="" name="sender" value="<?php echo $_SESSION['username']; ?>" readonly>
-                <input type="text" class="form-control py-0" id="" name="department" value="<?php echo $_SESSION['department']; ?>" readonly>
-            </div>
-        </div>
         <div>
-            <h6 class="p-1 text-danger">To: </h6>
-            <div class="receiver_details py-3 border border-bottom-1 border-secondary rounded my-2 bg-light">
+            <h6 class="p-1 text-danger m-0">To: </h6>
+            <div class="receiver_details py-2 rounded mb-4 bg-transparent">
                 <?php
                     $mentor_id = $_SESSION['mentorId'];
                     $sql = "
@@ -121,7 +116,10 @@
             </div>
         </div>
         <form action="#" method="POST" class="form-floating">
-            <div class="form-floating mb-3">
+            <div>
+                <input type="hidden" name="batch" value="2021">
+            </div>
+            <div class="form-floating mb-3 border border-0">
                 <input type="text" class="form-control" name="title" id="meeting_title" placeholder="Meeting Title" required>
                 <label for="meeting_title">Add a title</label>
             </div>

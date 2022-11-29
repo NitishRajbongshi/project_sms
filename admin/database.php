@@ -38,6 +38,23 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
     <!-- link for data table  -->
     <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <title>database details</title>
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style> 
+        div.my_width {
+            width: 330px;
+        }
+        div.stat {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        @media screen and (max-width: 700px) {
+            div.stat {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 
 <body id="body-pd">
@@ -50,7 +67,48 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['adminLogin'] == false) || !i
         exit;
     }
     ?>
-
+    <h3 class="text-center text-secondary p-3">Statistics</h3>
+    <div class="container stat">
+        <div class="student_details d-flex justify-content-center flex-wrap bg-danger text-light p-3 m-1 my_width">
+            <div class="icon_part px-3">
+                <i class="fa-solid fa-graduation-cap fa-3x"></i>
+            </div>
+            <div class="details_part px-3">
+                <h6>Total student</h6>
+                <h4>
+                    <?php
+                        include "others/count_student.php";
+                    ?>
+                </h4>
+            </div>
+        </div>
+        <div class="mentor_details d-flex justify-content-center flex-wrap bg-primary text-light p-3 m-1 my_width">
+            <div class="icon_part px-3">
+                <i class="fa-solid fa-person-chalkboard fa-3x"></i>
+            </div>
+            <div class="details_part px-3">
+                <h6>Total mentor</h6>
+                <h4>
+                    <?php
+                        include "others/count_mentor.php";
+                    ?>
+                </h4>
+            </div>
+        </div>
+        <div class="mentor_details d-flex justify-content-center flex-wrap bg-success text-light p-3 m-1 my_width">
+            <div class="icon_part px-3">
+                <i class="fa-solid fa-person-chalkboard fa-3x"></i>
+            </div>
+            <div class="details_part px-3">
+                <h6>Student having mentor</h6>
+                <h4>
+                    <?php
+                        include "others/student_having_mentor.php";
+                    ?>
+                </h4>
+            </div>
+        </div>
+    </div>
     <div class="container my-5">
         <table class="table" id="student_table">
             <thead>

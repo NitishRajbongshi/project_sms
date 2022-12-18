@@ -1,10 +1,10 @@
 <?php
-echo'<nav class="navbar .bg-transparent fixed-top">
+echo'<nav class="navbar .bg-transparent bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php"><span><img src="photo/tezpur_logo.png" alt="logo" height="35px" width="35px"></span><span id="title">Tezpur University</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar">
-            <i class="bi bi-list-ul"></i>
+            <i class="fa-solid fa-bars"></i>
         </button>
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel">

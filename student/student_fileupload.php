@@ -1,4 +1,7 @@
 <?php
+
+use Faker\Provider\bg_BG\PhoneNumber;
+
 session_start();
 if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || !isset($_SESSION['loggedin']) || !isset($_SESSION['studentLogin'])) {
     session_unset();
@@ -40,15 +43,17 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
     <?php
     include "partials/_navbar.php";
     include "../partials/_dbconnect.php";
-
+    
     // logout and redirect to index page
     if (isset($_POST['logout'])) {
         header("location: student_logout.php");
         exit;
     }
-
+    
+    $rollno = $_SESSION['rollno'];
 
     if (isset($_POST['submit']) && isset($_FILES['pdf'])) {
+        $title = $_POST['title'];
         $pdf = $_FILES['pdf']['name'];
         $pdf_type = $_FILES['pdf']['type'];
         $pdf_size = $_FILES['pdf']['size'];
@@ -59,7 +64,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
         if ($error === 0) {
             if ($pdf_size > 960000) { ?>
                 <div class="container">
-                    <p class="bg-info p-1 text-light">File size should not more than 2 MB.</p>
+                    <p class="bg-info p-1 text-light">File size should not more than 1 MB.</p>
                 </div>
             <?php
             }
@@ -72,9 +77,10 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
                     $new_pdf_name = uniqid("pdf-", true).'.'.$pdf_ex_lc;
 				    $pdf_upload_path = 'pdf/'.$new_pdf_name;
 				    move_uploaded_file($pdf_tem_loc, $pdf_upload_path);
+                    $mentor_id = $_SESSION['mentor_id'];
 
                     // insert into database
-                    $sql = "INSERT INTO `records`(`rollno`, `meeting_id`, `pdf`) VALUES ('CSM21033','CSE01','$new_pdf_name')";
+                    $sql = "INSERT INTO `records`(`rollno`, `meeting_id`, `title`, `pdf`) VALUES ('$rollno','$mentor_id', '$title', '$new_pdf_name')";
                     $result = mysqli_query($conn, $sql);
                     if($result) {?>
                     <div class="container">
@@ -104,24 +110,46 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
         <?php 
         }
     }
-
-
     ?>
-    <div class="container py-5">
+    <div class="container py-3">
         <h3 class="text-primary border-bottom border-primary">Upload File</h3>
         <ul class="text-info">
             <li>Only <span class="text-danger">.pdf</span> file is supported.</li>
-            <li>File size should not more than 2 MB.</li>
+            <li>File size should not more than 1 MB.</li>
             <li>Select only one file at a time.</li>
+            <li>Try to open this page in laptop sized screen for better view.</li>
         </ul>
     </div>
 
     <div class="container">
         <form class="uploadFile" action="student_fileupload.php" method="post" enctype="multipart/form-data">
+            <label for="title">Title for the file</label><br>
+            <input type="text" name="title" id="title" placeholder="eg.: 3rd sem marksheet" required><br>
             <label for="">Choose Your PDF File</label><br>
             <input id="pdf" type="file" name="pdf" value="" required><br><br>
             <input id="upload" type="submit" name="submit" value="Upload">
         </form>
+    </div>
+
+    <div class="container my-4">
+        <h5 class="text-secondary">History</h5>
+        <ul>
+            <?php
+                $sql = "SELECT * FROM `records` WHERE `rollno` = '$rollno'";
+                $query = mysqli_query($conn, $sql);
+                while ($info = mysqli_fetch_array($query)) {
+            ?>
+                <ul>
+                    <li>
+                        <?php echo $info['date_time'].' : '; ?>
+                        <?php echo $info['title'].' -- '; ?>
+                        <a href="pdf/<?php echo $info['pdf']; ?>" target="_blank">View</a>
+                    </li>
+                </ul><br>
+            <?php
+                }
+            ?>
+        </ul>
     </div>
 
     <!--===== MAIN JS =====-->

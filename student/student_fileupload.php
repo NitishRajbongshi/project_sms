@@ -46,23 +46,82 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
         header("location: student_logout.php");
         exit;
     }
+
+
+    if (isset($_POST['submit']) && isset($_FILES['pdf'])) {
+        $pdf = $_FILES['pdf']['name'];
+        $pdf_type = $_FILES['pdf']['type'];
+        $pdf_size = $_FILES['pdf']['size'];
+        $pdf_tem_loc = $_FILES['pdf']['tmp_name'];
+        $pdf_store = "pdf/" . $pdf;
+        $error = $_FILES['pdf']['error'];
+
+        if ($error === 0) {
+            if ($pdf_size > 960000) { ?>
+                <div class="container">
+                    <p class="bg-info p-1 text-light">File size should not more than 2 MB.</p>
+                </div>
+            <?php
+            }
+            else {
+                $pdf_ex = pathinfo($pdf, PATHINFO_EXTENSION);
+			    $pdf_ex_lc = strtolower($pdf_ex);
+
+                $allowed_exs = array("pdf");
+                if (in_array($pdf_ex_lc, $allowed_exs)) {
+                    $new_pdf_name = uniqid("pdf-", true).'.'.$pdf_ex_lc;
+				    $pdf_upload_path = 'pdf/'.$new_pdf_name;
+				    move_uploaded_file($pdf_tem_loc, $pdf_upload_path);
+
+                    // insert into database
+                    $sql = "INSERT INTO `records`(`rollno`, `meeting_id`, `pdf`) VALUES ('CSM21033','CSE01','$new_pdf_name')";
+                    $result = mysqli_query($conn, $sql);
+                    if($result) {?>
+                    <div class="container">
+                        <p class="bg-primary p-1 text-light">FIle uploaded successfully.</p>
+                    </div>
+                    <?php
+                    }
+                    else { ?>
+                    <div class="container">
+                        <p class="bg-info p-1 text-light">Some errors occur. Try again.</p>
+                    </div>
+                    <?php
+                    }
+                }
+                else { ?>
+                <div class="container">
+                    <p class="bg-info p-1 text-light">Choose .pdf file only.</p>
+                </div>
+                <?php 
+                }
+            }
+        }
+        else {?>
+            <div class="container">
+                    <p class="bg-info p-1 text-light">Some errors occur. Try again.</p>
+            </div>
+        <?php 
+        }
+    }
+
+
     ?>
     <div class="container py-5">
-        <h3>Upload file</h3>
-        <ul>
-            <li>Format: pdf, jpg, jpeg</li>
-            <li>file size: 2mb MAX</li>
+        <h3 class="text-primary border-bottom border-primary">Upload File</h3>
+        <ul class="text-info">
+            <li>Only <span class="text-danger">.pdf</span> file is supported.</li>
+            <li>File size should not more than 2 MB.</li>
+            <li>Select only one file at a time.</li>
         </ul>
     </div>
+
     <div class="container">
-    <!-- <form class="form-floating">
-        <input type="title" class="form-control rounded-0" id="titleFile" placeholder="name@example.com">
-        <label for="titleFile">Title of the file</label>
-    </form> -->
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="my_image">
-        <input type="submit" name="submit" value="Upload">
-    </form>
+        <form class="uploadFile" action="student_fileupload.php" method="post" enctype="multipart/form-data">
+            <label for="">Choose Your PDF File</label><br>
+            <input id="pdf" type="file" name="pdf" value="" required><br><br>
+            <input id="upload" type="submit" name="submit" value="Upload">
+        </form>
     </div>
 
     <!--===== MAIN JS =====-->

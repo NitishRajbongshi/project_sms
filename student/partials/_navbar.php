@@ -5,8 +5,8 @@
             <i class="bx bx-menu" id="header-toggle"></i>
         </div>
         <div class="header__img icon_section">
-            <a href="#"><i class="bi bi-arrow-bar-up"></i></a>
-            <a href="#"><i class="bi bi-person-circle profile_icon"></i></a>
+            <a href="student_fileupload.php"><i class="bi bi-arrow-bar-up"></i></a>
+            <a href="student_profile.php"><i class="bi bi-person-circle profile_icon"></i></a>
         </div>
     </header>
 
@@ -31,7 +31,7 @@
                         <span class="nav__name">Notice</span>
                     </a>
                     <a href="student_fileupload.php" class="nav__link">
-                        <i class="bx bx-list-ul nav__icon"></i>
+                        <i class="bx bx-file nav__icon"></i>
                         <span class="nav__name">Upload</span>
                     </a>
                     <a href="#" class="nav__link">

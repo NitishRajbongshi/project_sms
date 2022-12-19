@@ -45,7 +45,7 @@
         else {
             echo '
             <div class="container">
-                <p>You do not have any attachment</p>
+                <p>There is no any downloadable file available at this time.</p>
             </div>
             ';
         }

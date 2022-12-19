@@ -5,8 +5,8 @@
             <i class="bx bx-menu" id="header-toggle"></i>
         </div>
         <div class="header__img icon_section">
-            <a href="#"><i class="bi bi-arrow-bar-up"></i></a>
-            <a href="#"><i class="bi bi-person-circle profile_icon"></i></a>
+            <a href="attachment.php"><i class="bi bi-arrow-bar-down"></i></a>
+            <a href="mentor_profile.php"><i class="bi bi-person-circle profile_icon"></i></a>
         </div>
     </header>
 
@@ -41,6 +41,10 @@
                     <a href="#" class="nav__link">
                         <i class="bx bx-mail-send nav__icon"></i>
                         <span class="nav__name">Query</span>
+                    </a>
+                    <a href="attachment.php" class="nav__link">
+                        <i class="bx bx-file nav__icon"></i>
+                        <span class="nav__name">Attachment</span>
                     </a>
                 </div>
             </div>

@@ -58,7 +58,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
         $pdf_type = $_FILES['pdf']['type'];
         $pdf_size = $_FILES['pdf']['size'];
         $pdf_tem_loc = $_FILES['pdf']['tmp_name'];
-        $pdf_store = "pdf/" . $pdf;
+        $pdf_store = "../pdf/" . $pdf;
         $error = $_FILES['pdf']['error'];
 
         if ($error === 0) {
@@ -75,12 +75,12 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
                 $allowed_exs = array("pdf");
                 if (in_array($pdf_ex_lc, $allowed_exs)) {
                     $new_pdf_name = uniqid("pdf-", true).'.'.$pdf_ex_lc;
-				    $pdf_upload_path = 'pdf/'.$new_pdf_name;
+				    $pdf_upload_path = '../pdf/'.$new_pdf_name;
 				    move_uploaded_file($pdf_tem_loc, $pdf_upload_path);
                     $mentor_id = $_SESSION['mentor_id'];
-
+                    $flag = 0;
                     // insert into database
-                    $sql = "INSERT INTO `records`(`rollno`, `meeting_id`, `title`, `pdf`) VALUES ('$rollno','$mentor_id', '$title', '$new_pdf_name')";
+                    $sql = "INSERT INTO `records`(`rollno`, `mentor_id`, `title`, `pdf`, `flag`) VALUES ('$rollno','$mentor_id', '$title', '$new_pdf_name', '$flag')";
                     $result = mysqli_query($conn, $sql);
                     if($result) {?>
                     <div class="container">
@@ -143,7 +143,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
                     <li>
                         <?php echo $info['date_time'].' : '; ?>
                         <?php echo $info['title'].' -- '; ?>
-                        <a href="pdf/<?php echo $info['pdf']; ?>" target="_blank">View</a>
+                        <a href="../pdf/<?php echo $info['pdf']; ?>" target="_blank">View</a>
                     </li>
                 </ul><br>
             <?php

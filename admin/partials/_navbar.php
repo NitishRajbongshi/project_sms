@@ -38,9 +38,9 @@
                     <i class="bi bi-question-square-fill"></i>
                     <span class="nav__name">Task</span>
                 </a>
-                <a href="#" class="nav__link">
-                    <i class="bi bi-reception-3"></i>
-                    <span class="nav__name">Add Result</span>
+                <a href="upload_file.php" class="nav__link">
+                    <i class="bx bx-file nav__icon"></i>
+                    <span class="nav__name">Upload</span>
                 </a>
             </div>
         </div>

@@ -15,7 +15,7 @@
             <div>
                 <a href="#" class="nav__logo">
                     <i class="bx bx-layer nav__logo-icon"></i>
-                    <span class="nav__logo-name">SMS</span>
+                    <span class="nav__logo-name">MENTOR</span>
                 </a>
                 <div class="nav__list">
                     <a href="mentor_profile.php" class="nav__link">
@@ -33,14 +33,6 @@
                     <a href="#" class="nav__link">
                         <i class="bi bi-chat-left-text-fill"></i>
                         <span class="nav__name">Communication</span>
-                    </a>
-                    <a href="#" class="nav__link">
-                        <i class="bx bx-list-ul nav__icon"></i>
-                        <span class="nav__name">History</span>
-                    </a>
-                    <a href="#" class="nav__link">
-                        <i class="bx bx-mail-send nav__icon"></i>
-                        <span class="nav__name">Query</span>
                     </a>
                     <a href="attachment.php" class="nav__link">
                         <i class="bx bx-file nav__icon"></i>

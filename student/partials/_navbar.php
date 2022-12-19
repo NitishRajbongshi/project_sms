@@ -15,7 +15,7 @@
             <div>
                 <a href="student_profile.php" class="nav__logo">
                     <i class="bx bx-layer nav__logo-icon"></i>
-                    <span class="nav__logo-name">SMS</span>
+                    <span class="nav__logo-name">STUDENT</span>
                 </a>
                 <div class="nav__list">
                     <a href="student_profile.php" class="nav__link">

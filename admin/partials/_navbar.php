@@ -15,7 +15,7 @@
         <div>
             <a href="admin_profile.php" class="nav__logo">
                 <i class="bx bx-layer nav__logo-icon"></i>
-                <span class="nav__logo-name">SMS</span>
+                <span class="nav__logo-name">ADMIN</span>
             </a>
             <div class="nav__list">
                 <a href="admin_profile.php" class="nav__link">

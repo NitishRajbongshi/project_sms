@@ -21,7 +21,7 @@ echo'<nav class="navbar .bg-transparent bg-light">
                         <a class="nav-link" href="about.html"><i class="bi bi-file-earmark"></i>About</a>
                     </li>
                     <li class="menu_items nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-download"></i>Download</a>
+                        <a class="nav-link" href="download.php"><i class="bi bi-download"></i>Download</a>
                     </li>
                     <li class="menu_items nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

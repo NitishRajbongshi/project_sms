@@ -5,8 +5,8 @@
         <i class="bx bx-menu" id="header-toggle"></i>
     </div>
     <div class="header__img icon_section">
-        <a href="#"><i class="bi bi-arrow-bar-up"></i></a>
-        <a href="../admin_profile.php"><i class="bi bi-person-circle profile_icon"></i></a>
+        <a href="upload_file.php"><i class="bi bi-arrow-bar-up"></i></a>
+        <a href="admin_profile.php"><i class="bi bi-person-circle profile_icon"></i></a>
     </div>
 </header>
 

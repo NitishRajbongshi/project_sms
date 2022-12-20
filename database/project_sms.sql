@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2022 at 12:23 PM
+-- Generation Time: Dec 20, 2022 at 04:55 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -66,24 +66,8 @@ CREATE TABLE `group_meeting` (
 --
 
 INSERT INTO `group_meeting` (`meeting_code`, `mentor_id`, `rollno`, `meeting_id`, `title`, `description`, `date_time`, `student_remarks`, `mentor_remarks`, `mark_read`) VALUES
-('exYpM1X4', 'CSE01', 'CSM21011', 55, 'title', 'DESCRIPTION', '2022-11-13 18:48:28', '0', '0', 0),
-('exYpM1X4', 'CSE01', 'CSM21017', 56, 'title', 'DESCRIPTION', '2022-11-13 18:48:28', '0', '0', 0),
-('exYpM1X4', 'CSE01', 'CSM21019', 57, 'title', 'DESCRIPTION', '2022-11-13 18:48:45', '0', '0', 1),
-('exYpM1X4', 'CSE01', 'CSM21033', 58, 'title', 'DESCRIPTION', '2022-11-14 05:18:51', '0', '0', 1),
-('KiNLuBmT', 'CSE01', 'CSM21011', 59, 'Hello', 'This is a general meeting for all the students associated with me. Meet me today at 12.30 pm.', '2022-11-14 05:25:24', '0', '0', 0),
-('KiNLuBmT', 'CSE01', 'CSM21017', 60, 'Hello', 'This is a general meeting for all the students associated with me. Meet me today at 12.30 pm.', '2022-11-14 05:25:24', '0', '0', 0),
-('KiNLuBmT', 'CSE01', 'CSM21019', 61, 'Hello', 'This is a general meeting for all the students associated with me. Meet me today at 12.30 pm.', '2022-11-28 05:55:37', '0', '0', 1),
-('KiNLuBmT', 'CSE01', 'CSM21033', 62, 'Hello', 'This is a general meeting for all the students associated with me. Meet me today at 12.30 pm.', '2022-11-14 05:27:55', '0', '0', 1),
-('NXxnHBRb', 'CSE01', 'CSM21011', 63, 'fdfdfss', 'fsdfsdfs', '2022-11-14 05:28:11', '0', '0', 0),
-('NXxnHBRb', 'CSE01', 'CSM21017', 64, 'fdfdfss', 'fsdfsdfs', '2022-11-14 05:28:11', '0', '0', 0),
-('NXxnHBRb', 'CSE01', 'CSM21019', 65, 'fdfdfss', 'fsdfsdfs', '2022-11-28 05:55:34', '0', '0', 1),
-('NXxnHBRb', 'CSE01', 'CSM21033', 66, 'fdfdfss', 'fsdfsdfs', '2022-11-14 05:28:39', '0', '0', 1),
-('OtDGSw7m', 'CSE01', 'CSM21011', 67, 'title', 'desccc', '2022-11-18 06:40:08', '0', '0', 0),
-('OtDGSw7m', 'CSE01', 'CSM21017', 68, 'title', 'desccc', '2022-11-18 06:40:08', '0', '0', 0),
-('OtDGSw7m', 'CSE01', 'CSM21019', 69, 'title', 'desccc', '2022-11-28 05:55:31', '0', '0', 1),
-('eUs02LG3', 'CSE01', 'CSM21011', 70, 'It is a title', 'This is a description', '2022-11-28 05:53:25', '0', '0', 0),
-('eUs02LG3', 'CSE01', 'CSM21017', 71, 'It is a title', 'This is a description', '2022-11-28 05:53:25', '0', '0', 0),
-('eUs02LG3', 'CSE01', 'CSM21019', 72, 'It is a title', 'This is a description', '2022-11-28 05:55:28', '0', '0', 1);
+('reNGTmQl', 'CSE02', 'CSM21019', 73, 'Mentor mentee progress form submission', 'Submit the scan copy of mentor mentee progress form by today before 10.00 pm.', '2022-12-20 14:33:35', '0', '0', 0),
+('reNGTmQl', 'CSE02', 'CSM21020', 74, 'Mentor mentee progress form submission', 'Submit the scan copy of mentor mentee progress form by today before 10.00 pm.', '2022-12-20 14:33:35', '0', '0', 0);
 
 -- --------------------------------------------------------
 
@@ -92,15 +76,24 @@ INSERT INTO `group_meeting` (`meeting_code`, `mentor_id`, `rollno`, `meeting_id`
 --
 
 CREATE TABLE `individual_meeting` (
+  `individual_meeting_code` varchar(8) NOT NULL,
   `mentor_id` char(6) NOT NULL,
   `rollno` char(8) NOT NULL,
-  `individual_meeting_id` int(11) NOT NULL,
+  `meeting_id` int(11) NOT NULL,
   `title` varchar(100) NOT NULL,
   `description` varchar(200) DEFAULT NULL,
   `date_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `student_remarks` varchar(100) DEFAULT NULL,
-  `mentor_remarks` varchar(100) DEFAULT NULL
+  `student_remarks` varchar(200) DEFAULT NULL,
+  `mentor_remarks` varchar(200) DEFAULT NULL,
+  `mark_read` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `individual_meeting`
+--
+
+INSERT INTO `individual_meeting` (`individual_meeting_code`, `mentor_id`, `rollno`, `meeting_id`, `title`, `description`, `date_time`, `student_remarks`, `mentor_remarks`, `mark_read`) VALUES
+('oTdjRwDV', 'CSE01', 'CSM21011', 5, 'Upload Lab Report', 'Upload the pdf file of your DBMS lab report as soon as possible by today.', '2022-12-20 15:50:07', 'okay sir', 'Okay no problem', 1);
 
 -- --------------------------------------------------------
 
@@ -123,9 +116,11 @@ CREATE TABLE `mentor` (
 --
 
 INSERT INTO `mentor` (`mentor_id`, `mentor_email`, `mentor_phone`, `mentor_firstname`, `mentor_lastname`, `mentor_department`, `mentor_password`) VALUES
-('CSE01', 'saratsahariah@gmail.com', '7634256459', 'Sarat', 'Sahariah', 'Computer Science & Engineering', '$2y$10$eWWkqd8iy/Qr30hOlf6/Du7Fa75eG9EN8f4kGpVs6/7NyCP832Vsu'),
-('CSE02', 'nabajyotimedhi@gmail.com', '3457623489', 'Nabajyoti', 'Medhi', 'Computer Science & Engineering', '$2y$10$eWWkqd8iy/Qr30hOlf6/Du7Fa75eG9EN8f4kGpVs6/7NyCP832Vsu'),
-('CSE03', 'rcbmail@gmail.com', '3452367890', 'Ramcharan', 'Bashya', 'Computer Science & Engineering', '$2y$10$eWWkqd8iy/Qr30hOlf6/Du7Fa75eG9EN8f4kGpVs6/7NyCP832Vsu');
+('CSE01', 'saratsahariah@gmail.com', '6001020913', 'Dr. Sarat', 'Saharia', 'Computer Science & Engineering', '$2y$10$056xKvews/3rhHNLKOGlx.lzxpbN1OSZY9YmNigxXoDJ.xC6NqOWq'),
+('CSE02', 'nabajyotimedhi@gmail.com', '6001020912', 'Dr. Nabajyoti', 'Medhi', 'Computer Science & Engineering', '$2y$10$056xKvews/3rhHNLKOGlx.lzxpbN1OSZY9YmNigxXoDJ.xC6NqOWq'),
+('CSE03', 'tribikrampradhan@gmail.com', '6001020910', 'Dr.Tribikram ', 'Pradhan', 'Computer Science & Engineering', '$2y$10$056xKvews/3rhHNLKOGlx.lzxpbN1OSZY9YmNigxXoDJ.xC6NqOWq'),
+('CSE04', 'rosysharma@gmail.com', '6001020911', 'Dr. Rosy ', 'Sarmah', 'Computer Science & Engineering', '$2y$10$056xKvews/3rhHNLKOGlx.lzxpbN1OSZY9YmNigxXoDJ.xC6NqOWq'),
+('ECE01', 'asimdatta@gmail.com', '6001020909', 'Dr. Asim', 'Datta', 'Electrical Engineering', '$2y$10$056xKvews/3rhHNLKOGlx.lzxpbN1OSZY9YmNigxXoDJ.xC6NqOWq');
 
 -- --------------------------------------------------------
 
@@ -148,8 +143,8 @@ CREATE TABLE `records` (
 --
 
 INSERT INTO `records` (`id`, `rollno`, `mentor_id`, `title`, `pdf`, `date_time`, `flag`) VALUES
-(22, 'CSM21019', 'CSE02', 'Project Report', 'pdf-63a04485052f57.03868611.pdf', '2022-12-19 11:01:25', 0),
-(23, 'CSM21019', 'CSE02', 'Printing file', 'pdf-63a044ce707b11.47143533.pdf', '2022-12-19 11:03:53', 0);
+(25, 'admin1', '0', 'mentee form for 2022 autumnn', 'pdf-63a054540fbe57.02554837.pdf', '2022-12-19 12:08:52', 1),
+(26, 'admin1', '0', 'mentee progress form', 'pdf-63a054826f2527.10976812.pdf', '2022-12-19 12:09:38', 1);
 
 -- --------------------------------------------------------
 
@@ -176,7 +171,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`rollno`, `student_email`, `student_phone`, `student_firstname`, `student_lastname`, `academic_year`, `student_depertment`, `student_program`, `student_semester`, `student_password`, `assign_mentor`) VALUES
-('CSM21011', 'arnabbishwas@gmail.com', '7645342890', 'Arnab', 'Bishwas', 2021, 'Computer Science & Engineering', 'MCA', '3rd', '$2y$10$Dlj08D9iPmoVR/UrmjGz/uyYb.B/vGkfARebQCb/8GkwX88/6/RTa', 'CSE01'),
+('CSM21011', 'arnabbishwas@gmail.com', '7645342890', 'Arnab', 'Bishwas', 2021, 'Computer Science & Engineering', 'MCA', '3rd', '$2y$10$b2a5ewppjKTo.3Z544zoB.L92kRRDFH1hfuZ05Q3M2w9sGJ1zDnJ.', 'CSE01'),
 ('CSM21017', 'uddiptogogoi@gmail.com', '7856239022', 'Uddipto', 'Gogoi', 2021, 'Computer Science & Engineering', 'MCA', '3rd', '$2y$10$Dlj08D9iPmoVR/UrmjGz/uyYb.B/vGkfARebQCb/8GkwX88/6/RTa', 'CSE01'),
 ('CSM21019', 'manjitbarman@gmail.com', '8735421357', 'Manjit', 'Barman', 2021, 'Computer Science & Engineering', 'MCA', '3rd', '$2y$10$Dlj08D9iPmoVR/UrmjGz/uyYb.B/vGkfARebQCb/8GkwX88/6/RTa', 'CSE02'),
 ('CSM21020', 'dhanjittamuli@gmail.com', '3456234789', 'Dhanjit', 'Tamuli', 2021, 'Computer Science & Engineering', 'MCA', '3rd', '$2y$10$Dlj08D9iPmoVR/UrmjGz/uyYb.B/vGkfARebQCb/8GkwX88/6/RTa', 'CSE02'),
@@ -205,8 +200,8 @@ ALTER TABLE `group_meeting`
 -- Indexes for table `individual_meeting`
 --
 ALTER TABLE `individual_meeting`
-  ADD PRIMARY KEY (`mentor_id`,`rollno`),
-  ADD UNIQUE KEY `individual_meeting_id` (`individual_meeting_id`);
+  ADD PRIMARY KEY (`meeting_id`,`rollno`,`mentor_id`),
+  ADD UNIQUE KEY `individual_meeting_id` (`individual_meeting_code`);
 
 --
 -- Indexes for table `mentor`
@@ -238,19 +233,19 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `group_meeting`
 --
 ALTER TABLE `group_meeting`
-  MODIFY `meeting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `meeting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `individual_meeting`
 --
 ALTER TABLE `individual_meeting`
-  MODIFY `individual_meeting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `meeting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `records`
 --
 ALTER TABLE `records`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

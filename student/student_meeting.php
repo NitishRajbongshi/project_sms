@@ -56,8 +56,10 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
         <input type="hidden" id="text1">
         <input type="hidden" id="text2" value= <?php echo $_SESSION['rollno'];?>>
     </div>
-    <div class="container">
-        <h4 class="text-center text-secondary py-3">MEETING</h4>
+
+    <div class="container text-primary py-2">
+        <h3 class="text-primary mt-2 border-bottom border-2 border-primary py-1">Meeting</h3>
+        <p class="text-secondary">Group meeting for you organized by your mentor</p>
     </div>
 
     <?php

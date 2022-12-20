@@ -50,8 +50,9 @@
             exit;
         }
     ?>
-    <div class="container">
-        <h3 class="py-3 text-center text-secondary">Student List</h3>
+    <div class="container text-primary py-2">
+        <h3 class="text-primary mt-2 border-bottom border-2 border-primary py-1">List of Student</h3>
+        <p class="text-secondary">List of all the students</p>
     </div>
     <div class="container my-2">
         <table class="table" id="student_list">

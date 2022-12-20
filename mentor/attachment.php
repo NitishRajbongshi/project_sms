@@ -51,9 +51,9 @@
         }
     ?>
 
-    <div class="container text-primary py-3">
-        <h3 class="">Attachment</h3>
-        <p>Attachment from student associate with you.</p>
+    <div class="container text-primary py-2">
+        <h3 class="text-primary mt-2 border-bottom border-2 border-primary py-1">Attachment</h3>
+        <p class="text-secondary">Attachment from student associate with you.</p>
     </div>
     
     <?php

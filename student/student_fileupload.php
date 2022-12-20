@@ -48,8 +48,19 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
     if (isset($_POST['logout'])) {
         header("location: student_logout.php");
         exit;
-    }
+    } ?>
     
+    <div class="container py-3">
+        <h3 class="text-primary border-bottom border-primary border-2 py-2">Upload File</h3>
+        <ul class="text-info">
+            <li>Only <span class="text-danger">.pdf</span> file is supported.</li>
+            <li>File size should not more than 1 MB.</li>
+            <li>Select only one file at a time.</li>
+            <li>Try to open this page in laptop sized screen for better view.</li>
+        </ul>
+    </div>
+
+    <?php
     $rollno = $_SESSION['rollno'];
 
     if (isset($_POST['submit']) && isset($_FILES['pdf'])) {
@@ -111,15 +122,6 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
         }
     }
     ?>
-    <div class="container py-3">
-        <h3 class="text-primary border-bottom border-primary">Upload File</h3>
-        <ul class="text-info">
-            <li>Only <span class="text-danger">.pdf</span> file is supported.</li>
-            <li>File size should not more than 1 MB.</li>
-            <li>Select only one file at a time.</li>
-            <li>Try to open this page in laptop sized screen for better view.</li>
-        </ul>
-    </div>
 
     <div class="container">
         <form class="uploadFile" action="student_fileupload.php" method="post" enctype="multipart/form-data">

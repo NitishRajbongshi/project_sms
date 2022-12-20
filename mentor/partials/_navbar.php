@@ -30,7 +30,7 @@
                         <i class="bi bi-people-fill"></i>
                         <span class="nav__name">Group Meeting</span>
                     </a>
-                    <a href="#" class="nav__link">
+                    <a href="individual_meeting.php" class="nav__link">
                         <i class="bi bi-chat-left-text-fill"></i>
                         <span class="nav__name">Communication</span>
                     </a>

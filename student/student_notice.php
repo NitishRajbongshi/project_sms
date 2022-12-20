@@ -48,11 +48,29 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
         exit;
     }
     ?>
-    <div class="container">
-        <h4 class="text-secondary py-3 text-center" >Notice for you</h4>
+    <div class="container text-primary py-2">
+        <h3 class="text-primary mt-2 border-bottom border-2 border-primary py-1">Notice for you</h3>
+        <p class="text-secondary">Direct notice to you from you mentor</p>
     </div>
     <?php
-        include "meeting/notice_template.php";
+    $rollNo = $_SESSION['rollno'];
+    $sql = "
+    SELECT * FROM `individual_meeting` WHERE `rollno` = '$rollNo' ORDER BY `meeting_id` DESC;;
+    ";
+    $result = mysqli_query($conn, $sql);
+    $no_of_rows = mysqli_num_rows($result);
+    if($no_of_rows > 0) {
+        while($rows = mysqli_fetch_assoc($result)) {
+            include "meeting/notice_template.php";
+        }
+    }
+    else {
+        echo "
+        <div class='container py-4'>
+            <p class='bg-info p-2 text-light'>Currently, you have no new meetings.</p>
+        </div>
+        ";
+    }
     ?>
 
     <!--===== MAIN JS =====-->

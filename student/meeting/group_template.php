@@ -12,7 +12,7 @@
         </div>
         <div class="first_section d-flex justify-content-between flex-wrap py-1">
             <div class="meeting_id">
-                <span class=""><i class="fa-solid fa-handshake"></i><strong> Meeting Id: <span class="text-primary fs-5">
+                <span class=""><i class="fa-solid fa-handshake"></i><strong> Meeting Code: <span class="text-primary fs-5">
                 <?php
                         echo $rows['meeting_code'];
                 ?>

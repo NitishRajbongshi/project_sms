@@ -100,7 +100,6 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
             // ajax for mark as read
             $('.update').click(function() {
                 let update_id = $(this).data('id');
-                // let myid = "#"+update_id;
                 $('#text1').val(update_id);
                 let val1 = $('#text1').val();
                 let val2 = $('#text2').val();

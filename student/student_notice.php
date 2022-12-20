@@ -48,6 +48,11 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
         exit;
     }
     ?>
+    <div>
+        <input type="hidden" id="text1">
+        <input type="hidden" id="text2" value= <?php echo $_SESSION['rollno'];?>>
+    </div>
+    
     <div class="container text-primary py-2">
         <h3 class="text-primary mt-2 border-bottom border-2 border-primary py-1">Notice for you</h3>
         <p class="text-secondary">Direct notice to you from you mentor</p>
@@ -83,6 +88,39 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
             // script for logout
             $("#logoutbtn").click(function() {
                 window.location.replace("student_logout.php");
+            });
+
+            // mark as read
+            $("#mark_read").hover(function() {
+                $(this).css({
+                    'cursor':'pointer'
+                });
+            });
+
+            // ajax for mark as read
+            $('.update').click(function() {
+                let update_id = $(this).data('id');
+                // let myid = "#"+update_id;
+                $('#text1').val(update_id);
+                let val1 = $('#text1').val();
+                let val2 = $('#text2').val();
+                $.ajax({
+                    type: 'POST',
+                    url: 'meeting/script/mark_as_read_individual.php',
+                    data: { text1: val1, text2: val2 },
+                    success:function(response) {
+                        if(response === 'success') {
+                            alert('success');
+                            document.getElementById(update_id).style.display = 'none';
+                        }
+                        else if(response === 'failed'){
+                            alert('failed');
+                        }
+                        else {
+                            alert("error occured!");
+                        }
+                    }                    
+                });
             });
         });
     </script>

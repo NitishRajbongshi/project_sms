@@ -49,6 +49,7 @@
         include "partials/_navbar.php";
         include "../partials/_dbconnect.php";
         
+        $mentor_id = $_SESSION['mentorId'];
         // logout and redirect to index page
         if(isset($_POST['logout'])) {
             header("location: mentor_logout.php");
@@ -59,7 +60,6 @@
             $recipient = $_POST['recipient'];
             $meeting_title = $_POST['title'];
             $meeting_description = $_POST['description'];
-            $mentor_id = $_SESSION['mentorId'];
 
             $length = 8;    
             $meeting_code = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'),1,$length);
@@ -103,7 +103,7 @@
         }
     ?>
     
-    <div class="container shadow-sm py-3 my-2">
+    <div class="container shadow-sm py-1 my-2">
         <form action="individual_meeting.php" method="POST" class="form-floating">
             <span class="px-1 py-2 text-secondary">Recipient</span>
             <div class="form-floating mb-3 border border-0">
@@ -123,6 +123,10 @@
             </div>
             <button class="btn btn-outline-primary btn-sm px-5 py-1 my-3" name="meeting"><span><i class="bi bi-cursor-fill"></i></span> SEND</button>
         </form>
+    </div>
+
+    <div class="container d-flex justify-content-end">
+        <a href="notice_history.php">See History</a>
     </div>
 
     <!--===== MAIN JS =====-->

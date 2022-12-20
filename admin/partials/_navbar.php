@@ -30,28 +30,32 @@
                     <i class="bi bi-server"></i>
                     <span class="nav__name">Database</span>
                 </a>
-                <a href="search.php" class="nav__link">
-                    <i class="bi bi-search"></i>
-                    <span class="nav__name">Search</span>
-                </a>
                 <a href="task.php" class="nav__link">
                     <i class="bi bi-question-square-fill"></i>
-                    <span class="nav__name">Task</span>
+                    <span class="nav__name">Assign</span>
                 </a>
                 <a href="upload_file.php" class="nav__link">
                     <i class="bx bx-file nav__icon"></i>
                     <span class="nav__name">Upload</span>
                 </a>
+                <a href="mentor_mentee_list.php" class="nav__link">
+                    <i class="bx bx-list-check nav__icon"></i>
+                    <span class="nav__name">List</span>
+                </a>
+                <a href="search.php" class="nav__link">
+                    <i class="bx bx-search nav__icon"></i>
+                    <span class="nav__name">Search</span>
+                </a>
             </div>
         </div>
         <a href="#" class="nav__link">
-            <i class="bx bx-log-out nav__icon" id="logoutbtn"></i>
-            <span class="nav__name">
-                <form action="admin_profile.php" method="post">
-                    <input class="bg-transparent text-danger border-0" type="submit" name="logout" value="Logout">
-                </form>
-            </span>
-        </a>
+                <i class="bx bx-log-out nav__icon" id="logoutbtn"></i>
+                <span class="nav__name">
+                    <form action="#" method="post">
+                        <input class="bg-transparent text-danger border-0" type="submit" name="logout" value="Logout">
+                    </form>
+                </span>
+            </a>
     </nav>
 </div>
     '

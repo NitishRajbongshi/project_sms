@@ -34,10 +34,6 @@
                         <i class="bx bx-file nav__icon"></i>
                         <span class="nav__name">Upload</span>
                     </a>
-                    <a href="#" class="nav__link">
-                        <i class="bx bx-mail-send nav__icon"></i>
-                        <span class="nav__name">Query</span>
-                    </a>
                 </div>
             </div>
             <a href="#" class="nav__link">

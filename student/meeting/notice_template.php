@@ -22,7 +22,7 @@
     }
 ?>
 
-<div class="container shadow-sm aa  p-2 notice_container bg-light">
+<div class="container shadow-sm aa  p-2 notice_container bg-light m-2">
     <div class="markasread_part d-flex justify-content-end">
         <?php
         if ($rows['mark_read'] == 0) { ?>

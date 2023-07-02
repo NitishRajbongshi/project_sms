@@ -36,7 +36,7 @@
     <!-- link for data table  -->
     <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
-    <title>Communication</title>
+    <title>Communication History</title>
 </head>
 
 <body id="body-pd">
@@ -64,7 +64,11 @@
     $status = mysqli_query($conn, $query);
     $no_rows = mysqli_num_rows($status);
     if($no_rows == 0) {
-        echo "<p>You have not created any meeting yet</p>";
+        echo "
+        <div class='container py-4'>
+        <p class='bg-info p-2 text-light'>There is no any exiting meeting.</p>
+        </div>
+        ";
     }
     else {
         while($r = mysqli_fetch_assoc($status)) { ?>

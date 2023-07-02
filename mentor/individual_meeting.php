@@ -103,7 +103,7 @@
         }
     ?>
     
-    <div class="container shadow-sm py-1 my-2">
+    <div class="container py-1 my-2">
         <form action="individual_meeting.php" method="POST" class="form-floating">
             <span class="px-1 py-2 text-secondary">Recipient</span>
             <div class="form-floating mb-3 border border-0">

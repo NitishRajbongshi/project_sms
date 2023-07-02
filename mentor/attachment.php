@@ -82,11 +82,11 @@
         }
     }
     else {
-        echo '
-        <div class="container">
-            <p>You do not have any attachment</p>
-        </div>
-        ';
+        echo "
+        <div class='container py-4'>
+            <p class='bg-info p-2 text-light'>No attachment is found.</p>
+            </div>
+        ";
     }
     ?>
 

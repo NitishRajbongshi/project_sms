@@ -75,7 +75,11 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
             }
         }
         else {
-            echo "<div class='container py-4'><p>Currently, you have no new meetings.</p></div>";
+            echo "
+            <div class='container py-4'>
+            <p class='bg-info p-2 text-light'>Currently, you have no new meetings.</p>
+            </div>
+            ";
         }
 
     ?>

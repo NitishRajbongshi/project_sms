@@ -90,7 +90,7 @@
     <div class="select_batch">
         
     </div>
-    <div class="container shadow-sm py-3 my-2">
+    <div class="container py-3 my-2">
         <div>
             <h6 class="p-1 text-danger m-0">To: </h6>
             <div class="receiver_details py-2 rounded mb-4 bg-transparent">

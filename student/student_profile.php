@@ -93,7 +93,7 @@ if (($_SESSION['loggedin'] == false) || ($_SESSION['studentLogin'] == false) || 
             if($_SESSION['mentor_id'] == 0) {
                 echo '
                 <div class="no_mentor">
-                    <p class="text-danger pb-2">Oops!! There is currently no mentor assigned to you.</p>
+                    <p class="text-danger pb-2 ps-2">There is currently no mentor assigned to you.</p>
                 </div>
                 ';
             }
